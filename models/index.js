@@ -29,6 +29,7 @@ User.hasMany(Rating, {
 });
 
 Rating.belongsTo(User, {
+    as: 'recipient',
     foreignKey: 'recipient_id',
 });
 
@@ -37,6 +38,7 @@ User.hasMany(Rating, {
 });
 
 Rating.belongsTo(User, {
+    as: 'poster',
     foreignKey: 'poster_id',
 });
 

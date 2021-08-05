@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const { User, Basket, Product } = require('../../models');
+const { User, Basket, Product, Rating } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // CREATE a new basket
 router.post('/', withAuth, async (req, res) => {
     try {
         // assume user can provide product_id
-        console.log("creating a basket");
         const dbBasketData = await Basket.create({
             // req.body
             stock: req.body.stock,
@@ -17,7 +16,6 @@ router.post('/', withAuth, async (req, res) => {
         });
         res.status(200).json(dbBasketData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -41,7 +39,6 @@ router.get('/', async (req, res) => {
         });
         res.status(200).json(dbBasketData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -64,7 +61,6 @@ router.get('/:id', async (req, res) => {
         });
         res.status(200).json(dbBasketData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -94,7 +90,6 @@ router.put('/:id', withAuth, async (req, res) => {
             res.status(200).json({ message: 'Updated successfully!' });
         }
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -118,27 +113,8 @@ router.delete('/:id', withAuth, async (req, res) => {
             res.status(200).json({ message: 'Delete the basket successfully!' });
         }
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
-
-// // CREATE comment to the basket with id === req.params.id
-// router.post('/:id', withAuth, async (req, res) => {
-//     try {
-//         const dbCommentData = await Comment.create(
-//             {
-//                 content: req.body.content,
-//                 user_id: req.session.userId,
-//                 basket_id: req.params.id,
-//             }
-//         );
-
-//         res.status(200).json(dbCommentData);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
 
 module.exports = router;
