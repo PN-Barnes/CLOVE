@@ -15,7 +15,7 @@ Product.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        speicies: {
+        species: {
             type: DataTypes.STRING,
         },
         organic: {
