@@ -33,6 +33,37 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET rating with id === req.params.id
+router.get('/:id', async (req, res) => {
+    try {
+        const dbRatingData = await Rating.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: {
+                        exclude: ['password'],
+                    },
+                    as: "poster"
+                },
+                {
+                    model: User,
+                    attributes: {
+                        exclude: ['password'],
+                    },
+                    as: "recipient"
+                },
+                {
+                    model: Product
+                }
+            ]
+        });
+        res.status(200).json(dbRatingData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // GET info of rating of certain recipient with recipient_id === req.params.id
 router.get('/recipient/:id', async (req, res) => {
     try {
