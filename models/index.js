@@ -65,4 +65,4 @@ Message.belongsTo(User, {
     foreignKey: 'sender_id',
 });
 
-module.exports = { User, Product };
+module.exports = { User, Product, Rating, Message, Basket };
