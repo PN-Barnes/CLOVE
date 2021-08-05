@@ -1,0 +1,19 @@
+<div class="flex-column justify-space-around">
+  <header class="display-flex justify-space-between align-center mx-auto">
+    {{#if profilePage}}
+      <h1><a href="/dashboard">Profile</a></h1>
+    {{else}}
+      <h1><a href="/">CLOVE</a></h1>
+    {{/if}}
+    <nav>
+      <a href="/">Home</a>
+      <a href="/profile">Profile</a>
+      {{#if loggedIn}}
+        <a id="logout">logout</a>
+      {{else}}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      {{/if}}
+    </nav>
+  </header>
+</div>
