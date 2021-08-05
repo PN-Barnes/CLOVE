@@ -4,32 +4,32 @@ const productData = [
   {
     name: 'tomato',
     species: 'fruit',
-    organic: 'yes',
+    organic: true,
   },
   {
     name: 'raddish',
     species: 'vegetable',
-    organic: 'yes',
+    organic: true,
   },
   {
     name: 'apples',
     species: 'fruit',
-    organic: 'yes',
+    organic: true,
   },
   {
     name: 'broccoli',
     species: 'vegetable',
-    organic: 'yes',
+    organic: true,
   },
   {
     name: 'orange',
     species: 'fruit',
-    organic: 'yes',
+    organic: true,
   },
   {
     name: 'carrot',
     species: 'vegetable',
-    organic: 'yes',
+    organic: true,
   },
 ];
 
