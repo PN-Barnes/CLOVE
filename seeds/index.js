@@ -1,8 +1,8 @@
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
-const userData = require('./userData');
-const ProductData = require('./productData');
-const { User, Product } = require('../models');
+const userData = require("./userData");
+const ProductData = require("./productData");
+const { User, Product } = require("../models");
 
 const seedDB = async () => {
   await sequelize.sync({ force: true });
@@ -22,3 +22,5 @@ const seedDB = async () => {
 };
 
 seedDB();
+
+// USE THIS FILE TO SEED DATABASE
