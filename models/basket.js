@@ -25,6 +25,9 @@ Basket.init(
                 min: 0,
             }
         },
+        description: {
+            type: DataTypes.STRING
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

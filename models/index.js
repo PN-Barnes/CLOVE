@@ -4,14 +4,6 @@ const Rating = require('./Rating');
 const Message = require('./Message');
 const Basket = require('./Basket');
 
-User.hasMany(Product, {
-    foreignKey: 'user_id',
-});
-
-Product.belongsTo(User, {
-    foreignKey: 'user_id',
-});
-
 // foreign keys of basket
 Product.hasMany(Basket, {
     foreignKey: 'product_id',

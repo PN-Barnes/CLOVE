@@ -28,7 +28,7 @@ User.init(
                 len: [6],
             },
         },
-        location: {
+        zipcode: {
             type: DataTypes.STRING,
             allowNull: false,
         }

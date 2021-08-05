@@ -32,4 +32,4 @@ Product.init(
     }
 );
 
-module.exports = product;
+module.exports = Product;
