@@ -1,6 +1,28 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// GET user info with username === req.params.username
+router.get('/:username', async (req, res) => {
+    try {
+        const dbUserData = await User.findOne({
+            attributes: {
+                exclude: ['password']
+            },
+            where: { username: req.params.username }
+        });
+
+        if (!dbUserData) {
+            res.status(400).json({ message: "No user found with this username!"});
+        } else {
+            const user = dbUserData.get({ plain: true });
+            res.status(200).json(user);
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // CREATE a new user
 router.post('/', async (req, res) => {
     try {

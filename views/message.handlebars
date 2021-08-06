@@ -1,0 +1,45 @@
+<ul class="nav nav-tabs" id="messageTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="inbox-tab" data-bs-toggle="tab" data-bs-target="#inbox" type="button" role="tab" aria-controls="inbox" aria-selected="true">Inbox</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="sent-tab" data-bs-toggle="tab" data-bs-target="#sent" type="button" role="tab" aria-controls="sent" aria-selected="false">Sent</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="compose-tab" data-bs-toggle="tab" data-bs-target="#compose" type="button" role="tab" aria-controls="compose" aria-selected="false">Compose</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="inbox" role="tabpanel" aria-labelledby="inbox-tab">
+    {{#each messageReceived}}
+      {{> message-received-list}}
+    {{/each}}
+  </div>
+  <div class="tab-pane fade" id="sent" role="tabpanel" aria-labelledby="sent-tab">
+    {{#each messageSent}}
+      {{> message-sent-list}}
+    {{/each}}
+  </div>
+  <div class="tab-pane fade" id="compose" role="tabpanel" aria-labelledby="compose-tab">
+      <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h2>Compose Message</h2>
+            </div>
+            <form id="form-create-message-with-name">
+                <div class="form-group">
+                    <label for="recipient">To:</label>
+                    <input type="text" class="form-control" id="recipient">
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Send</button>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/newMessage.js"></script>

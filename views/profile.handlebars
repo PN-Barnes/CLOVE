@@ -11,12 +11,14 @@
     </div>
     <div class="card profile-small-section">
       <div class="card-body">
-        <h5 class="card-title">Messages</h5>
-        <ul class="list-group list-group-flush">
-          {{#each messages}}
-            {{> profile-message-list}}
-          {{/each}}
-        </ul>
+        <a href="/profile/message">
+          <h5 class="card-title">Messages</h5>
+          <ul class="list-group list-group-flush">
+            {{#each messages}}
+              {{> profile-message-list}}
+            {{/each}}
+          </ul>
+        </a>
       </div>
     </div>
     <div class="card profile-small-section">
