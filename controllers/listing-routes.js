@@ -3,6 +3,8 @@ const { User, Basket, Product } = require('../models');
 const withAuth = require('../utils/auth');
 const Op = require('sequelize').Op;
 
+// NEED to add data retrieval to page
+
 router.get('/', async (req, res) => {
   try {
     console.log('Grabbing listings');
