@@ -6,6 +6,8 @@ const Op = require('sequelize').Op;
 // public information
 
 // user can view all kinds of product on sale on the homepage
+
+// * SUCCESSFUL ROUTE
 router.get('/', async (req, res) => {
   try {
     console.log('Yay');
@@ -71,6 +73,8 @@ router.get('/product/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// ? Route for login page
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
