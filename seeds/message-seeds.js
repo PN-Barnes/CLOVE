@@ -31,6 +31,18 @@ const messageData = [
     recipient_id: '5',
     sender_id: '1',
   },
+  {
+    content: 'Sure.',
+    date_created: '08/02/2021',
+    recipient_id: '7',
+    sender_id: '8',
+  },
+  {
+    content: 'Can we make an appointment at 4pm tomorrow?',
+    date_created: '08/02/2021',
+    recipient_id: '8',
+    sender_id: '7',
+  },
 ];
 
 const seedMessages = () => Message.bulkCreate(messageData);

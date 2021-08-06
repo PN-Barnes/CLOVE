@@ -41,6 +41,38 @@ const ratingData = [
     poster_id: '4',
     product_id: '1',
   },
+  {
+    score: '5',
+    content: 'Exceptional quality produce!',
+    date_created: '08/05/2021',
+    recipient_id: '5',
+    poster_id: '4',
+    product_id: '1',
+  },
+  {
+    score: '5',
+    content: 'Exceptional quality produce!',
+    date_created: '08/05/2021',
+    recipient_id: '5',
+    poster_id: '4',
+    product_id: '1',
+  },
+  {
+    score: '4',
+    content: 'Good seller!',
+    date_created: '08/04/2021',
+    recipient_id: '8',
+    poster_id: '7',
+    product_id: '1',
+  },
+  {
+    score: '5',
+    content: 'excellent buyer!',
+    date_created: '08/03/2021',
+    recipient_id: '7',
+    poster_id: '8',
+    product_id: '1',
+  },
 ];
 
 const seedRatings = () => Rating.bulkCreate(ratingData);
