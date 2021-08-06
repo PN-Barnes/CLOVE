@@ -59,6 +59,22 @@ router.get('/', withAuth, async (req, res) => {
                 }
               ]
             },
+            include: [
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "sender",
+              },
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "recipient",
+              }
+            ]
           },
         ],
         order: [[Message, 'date_created', 'DESC'], [Rating, 'date_created', 'DESC']],
@@ -81,14 +97,14 @@ router.get('/', withAuth, async (req, res) => {
       obj.isRecipient = obj.recipient_id === req.session.userId;
     }
     user.ratingAverage = Math.floor(totalScore / countRatingReceived);
-    res.status(200).json(user);
+    // res.status(200).json(user);
     console.log(user);
     // display profile page with data of the user logged in
-    // res.render('profile', {
-    //   ...user,
-    //   loggedIn: req.session.loggedIn,
-    //   profilePage: true,
-    // });
+    res.render('profile', {
+      ...user,
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
