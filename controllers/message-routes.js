@@ -32,12 +32,21 @@ router.get('/', withAuth, async (req, res) => {
         order: [['date_created', 'DESC']],
     });
   
-      const messages = dbMessageData.map(message => message.get({ plain: true }));
-      for (const message of messages) {
-        message.isRecipient = message.recipient_id === req.session.userId;
+      const messageRelated = dbMessageData.map(message => message.get({ plain: true }));
+      const messageReceived = [];
+      const messageSent = [];
+      for (const message of messageRelated) {
+        if (message.recipient_id === req.session.userId) {
+            messageReceived.push(message);
+        } else {
+            messageSent.push(message);
+        }
       }
+      const messages = { messageReceived, messageSent }
+
     //   res.status(200).json(messages);
       // display message page with data of the user logged in
+      console.log(messages);
       res.render('message', {
         ...messages,
         loggedIn: req.session.loggedIn,

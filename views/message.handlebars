@@ -11,12 +11,16 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="inbox" role="tabpanel" aria-labelledby="inbox-tab">
-
+    {{#each messageReceived}}
+      {{> message-received-list}}
+    {{/each}}
   </div>
   <div class="tab-pane fade" id="sent" role="tabpanel" aria-labelledby="sent-tab">
-
+    {{#each messageSent}}
+      {{> message-sent-list}}
+    {{/each}}
   </div>
   <div class="tab-pane fade" id="compose" role="tabpanel" aria-labelledby="compose-tab">
-      
+
   </div>
 </div>
