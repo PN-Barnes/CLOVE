@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { User, Basket, Product, Rating } = require('../../models');
-const withAuth = require('../../utils/auth');
-const { formatString } = require('../utils/helpers');
-const { Op } = require("sequelize");
+// const withAuth = require('../../utils/auth');
+// const { formatString } = require('../../utils/helpers');
+// const { Op } = require("sequelize");
 
 // GET info of product
 router.get('/', async (req, res) => {
