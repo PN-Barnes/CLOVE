@@ -111,17 +111,17 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/newbasket', withAuth, async (req, res) => {
-//   try {
-//     res.render('newbasket', {
-//       loggedIn: req.session.loggedIn,
-//       profilePage: true,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+router.get('/newbasket', withAuth, async (req, res) => {
+  try {
+    res.render('new-basket', {
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // router.get('/edit/:id', withAuth, async (req, res) => {
 //   try {
