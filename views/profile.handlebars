@@ -11,7 +11,7 @@
     </div>
     <div class="card profile-small-section">
       <div class="card-body">
-        <a href="/profile/message">
+        <a href="/profile/message/">
           <h5 class="card-title">Messages</h5>
           <ul class="list-group list-group-flush">
             {{#each messages}}
@@ -23,12 +23,14 @@
     </div>
     <div class="card profile-small-section">
       <div class="card-body">
-        <h5 class="card-title">Ratings</h5>
-        <ul class="list-group list-group-flush">
-          {{#each ratings}}
-            {{> profile-rating-list}}
-          {{/each}}
-        </ul>
+        <a href="/profile/rating/">
+          <h5 class="card-title">Ratings</h5>
+          <ul class="list-group list-group-flush">
+            {{#each ratings}}
+              {{> profile-rating-list}}
+            {{/each}}
+          </ul>
+        </a>
       </div>
     </div>
   </div>

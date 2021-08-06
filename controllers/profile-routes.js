@@ -3,8 +3,10 @@ const { User, Product, Basket, Rating, Message } = require('../models');
 const withAuth = require('../utils/auth');
 const { Op } = require("sequelize");
 const messageRoutes = require('./message-routes');
+const ratingRoutes = require('./rating-routes');
 
 router.use('/message', messageRoutes);
+router.use('/rating', ratingRoutes);
 
 // Use withAuth middleware to prevent access to route
 router.get('/', withAuth, async (req, res) => {
