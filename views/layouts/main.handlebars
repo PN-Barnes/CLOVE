@@ -11,29 +11,9 @@
     <link rel="stylesheet" href="/css/jass.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
 
-    <div>
-        <header class="d-flex justify-content-between align-items-center mx-auto">
-            {{#if profilePage}}
-                <h1><a href="/profile">Profile</a></h1>
-            {{else}}
-                <h1><a href="/">CLOVE</a></h1>
-            {{/if}}
-            <nav>
-                <a href="/">Home</a>
-                <a href="/profile">Profile</a>
-                <a href="/listing"><i class="fas fa-search"></i></a>
-                {{#if loggedIn}}
-                <a id="logout">logout</a>
-                {{else}}
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
-                {{/if}}
-            </nav>
-        </header>
-    </div>
-    
+<body>
+    {{>navigation}}
     <main class="mx-auto">
         <div>{{{body}}}</div>
     </main>
