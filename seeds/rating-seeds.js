@@ -30,15 +30,15 @@ const ratingData = [
     content: 'Good quality produce!',
     date_created: '08/05/2021',
     recipient_id: '4',
-    poster_id: '8',
-    product_id: '7',
+    poster_id: '3',
+    product_id: '2',
   },
   {
     score: '5',
     content: 'Exceptional quality produce!',
     date_created: '08/05/2021',
     recipient_id: '5',
-    poster_id: '9',
+    poster_id: '4',
     product_id: '1',
   },
 ];
