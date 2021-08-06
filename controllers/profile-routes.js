@@ -48,14 +48,14 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     const user = dbUserData.get({ plain: true });
-    res.status(200).json(user);
-    // console.log(user);
-    // // display profile page with data of the user logged in
-    // res.render('profile', {
-    //   ...user,
-    //   loggedIn: req.session.loggedIn,
-    //   profilePage: true,
-    // });
+    // res.status(200).json(user);
+    console.log(user);
+    // display profile page with data of the user logged in
+    res.render('profile', {
+      ...user,
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
