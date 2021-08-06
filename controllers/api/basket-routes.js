@@ -21,7 +21,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // GET BASKET AND PRODUCTS BY SEARCH
-router.get('/:product_name', async (req, res) => {
+router.get('/product/:product_name', async (req, res) => {
   try {
     console.log('Please work');
     const dbBasketData = await Product.findOne({
