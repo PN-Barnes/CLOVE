@@ -56,6 +56,7 @@ User.hasMany(Message, {
 });
 
 Message.belongsTo(User, {
+    as: 'recipient',
     foreignKey: 'recipient_id',
 });
 
@@ -64,6 +65,7 @@ User.hasMany(Message, {
 });
 
 Message.belongsTo(User, {
+    as: 'sender',
     foreignKey: 'sender_id',
 });
 
