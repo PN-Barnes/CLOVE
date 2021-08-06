@@ -5,12 +5,12 @@ const { Op } = require("sequelize");
 
 router.get('/', withAuth, async (req, res) => {
     try {
-      // get all message of user logged in
-      const dbMessageData = await Message.findAll({
+      // get all rating of user logged in
+      const dbRatingData = await Rating.findAll({
         where: {
             [Op.or]: [
                 { recipient_id: req.session.userId },
-                { sender_id: req.session.userId }
+                { poster_id: req.session.userId }
             ]
         },
         include: [
@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
                 attributes: {
                     exclude: ['password'],
                 },
-                as: "sender"
+                as: "poster"
             },
             {
                 model: User,
@@ -32,23 +32,23 @@ router.get('/', withAuth, async (req, res) => {
         order: [['date_created', 'DESC']],
     });
   
-      const messageRelated = dbMessageData.map(message => message.get({ plain: true }));
-      const messageReceived = [];
-      const messageSent = [];
-      for (const message of messageRelated) {
-        if (message.recipient_id === req.session.userId) {
-            messageReceived.push(message);
+      const ratingRelated = dbRatingData.map(rating => rating.get({ plain: true }));
+      const ratingReceived = [];
+      const ratingPosted = [];
+      for (const rating of ratingRelated) {
+        if (rating.recipient_id === req.session.userId) {
+            ratingReceived.push(rating);
         } else {
-            messageSent.push(message);
+            ratingPosted.push(rating);
         }
       }
-      const messages = { messageReceived, messageSent }
+      const ratings = { ratingReceived, ratingPosted }
 
-    //   res.status(200).json(messages);
-      // display message page with data of the user logged in
-      console.log(messages);
-      res.render('message', {
-        ...messages,
+    //   res.status(200).json(ratings);
+      // display rating page with data of the user logged in
+      console.log(ratings);
+      res.render('rating', {
+        ...ratings,
         loggedIn: req.session.loggedIn,
         profilePage: true,
       });
@@ -57,4 +57,5 @@ router.get('/', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
 module.exports = router;

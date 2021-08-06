@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // GET user info with username === req.params.username
-router.get('/:username', async (req, res) => {
+router.get('/name/:username', async (req, res) => {
     try {
         const dbUserData = await User.findOne({
             attributes: {

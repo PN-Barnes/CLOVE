@@ -6,7 +6,7 @@ const createMessageHandler = async (event) => {
   
     if (username && content) {
         // http://localhost:3001/api/users/user1
-        let response = await fetch(`/api/users/${username}`, {
+        let response = await fetch(`/api/users/name/${username}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
