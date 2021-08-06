@@ -25,4 +25,22 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/name/:productName', async (req, res) => {
+    try {
+        const dbProductData = await Product.findOne({
+            where: { name: req.params.productName }
+        });
+
+        if (!dbProductData) {
+            res.status(400).json({ message: "No product found with this product name!"});
+        } else {
+            const product = dbProductData.get({ plain: true });
+            res.status(200).json(product);
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
