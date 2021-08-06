@@ -28,6 +28,6 @@ const basketData = [
   },
 ];
 
-const seedBaskets = () => basket.bulkCreate(basketData);
+const seedBaskets = () => Basket.bulkCreate(basketData);
 
 module.exports = seedBaskets;
