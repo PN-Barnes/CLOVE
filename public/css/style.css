@@ -1,3 +1,28 @@
-header {
+header, main{
     width: 80%;
+}
+main {
+    margin-top: 40px;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.baskets-display {
+    border: solid black 2px;
+    height: 100%;
+}
+
+.basket-list-card {
+    padding: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.profile-small-section {
+    height: 170px;
+    overflow: auto;
 }

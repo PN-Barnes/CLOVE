@@ -29,7 +29,23 @@ router.get('/', withAuth, async (req, res) => {
                   poster_id: req.session.userId
                 }
               ]
-            }
+            },
+            include: [
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "poster",
+              },
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "recipient",
+              }
+            ]
           },
           {
             model: Message,
@@ -42,12 +58,45 @@ router.get('/', withAuth, async (req, res) => {
                   sender_id: req.session.userId
                 }
               ]
-            }
+            },
+            include: [
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "sender",
+              },
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "recipient",
+              }
+            ]
           },
         ],
+        order: [[Message, 'date_created', 'DESC'], [Rating, 'date_created', 'DESC']],
     });
 
     const user = dbUserData.get({ plain: true });
+    let totalScore = 0;
+    let countRatingReceived = 0;
+    for (const rating of user.ratings) {
+      if (rating.recipient_id === req.session.userId) {
+        rating.isRecipient = true;
+        totalScore += rating.score;
+        countRatingReceived++;
+      }
+      else {
+        rating.isRecipient = false;
+      }
+    }
+    for (const obj of user.messages) {
+      obj.isRecipient = obj.recipient_id === req.session.userId;
+    }
+    user.ratingAverage = Math.floor(totalScore / countRatingReceived);
     // res.status(200).json(user);
     console.log(user);
     // display profile page with data of the user logged in
@@ -62,17 +111,17 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/newbasket', withAuth, async (req, res) => {
-//   try {
-//     res.render('newbasket', {
-//       loggedIn: req.session.loggedIn,
-//       profilePage: true,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+router.get('/newbasket', withAuth, async (req, res) => {
+  try {
+    res.render('new-basket', {
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // router.get('/edit/:id', withAuth, async (req, res) => {
 //   try {
