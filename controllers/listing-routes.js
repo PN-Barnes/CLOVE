@@ -6,5 +6,21 @@ const Op = require('sequelize').Op;
 router.get('/', async (req, res) => {
   try {
     console.log('Grabbing listings');
-  } catch (error) {}
+    // const basketData = await Basket.findAll({
+    //   //   include: [
+    //   //     {
+    //   //       model: Product,
+    //   //     },
+    //   //   ],
+    // });
+
+    // const listings = basketData.map((basket) => basket.get({ plain: true }));
+
+    res.render('listing');
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
+
+module.exports = router;
