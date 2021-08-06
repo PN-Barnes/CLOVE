@@ -2,6 +2,9 @@ const router = require('express').Router();
 const { User, Product, Basket, Rating, Message } = require('../models');
 const withAuth = require('../utils/auth');
 const { Op } = require("sequelize");
+const messageRoutes = require('./message-routes');
+
+router.use('/message', messageRoutes);
 
 // Use withAuth middleware to prevent access to route
 router.get('/', withAuth, async (req, res) => {
@@ -141,8 +144,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     });
 
     const user = dbUserData.get({ plain: true });
-    // console.log(user);
-    // res.status(200).json(user);
     res.render('update-basket', {
       ...user,
       loggedIn: req.session.loggedIn,
