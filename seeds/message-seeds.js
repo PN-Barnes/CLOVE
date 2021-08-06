@@ -33,13 +33,25 @@ const messageData = [
   },
   {
     content: 'Sure.',
-    date_created: '08/02/2021',
+    date_created: '2021-08-05T00:11:08.000Z',
     recipient_id: '7',
     sender_id: '8',
   },
   {
     content: 'Can we make an appointment at 4pm tomorrow?',
-    date_created: '08/02/2021',
+    date_created: '2021-08-06T07:59:55.000Z',
+    recipient_id: '8',
+    sender_id: '7',
+  },
+  {
+    content: 'Sure.',
+    date_created: '2021-08-06T08:24:55.000Z',
+    recipient_id: '7',
+    sender_id: '8',
+  },
+  {
+    content: 'Can we make an appointment at 4pm tomorrow?',
+    date_created: '2021-08-07T00:11:08.000Z',
     recipient_id: '8',
     sender_id: '7',
   },
