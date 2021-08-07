@@ -37,7 +37,6 @@ router.get('/product/:product_name', async (req, res) => {
     const searchResults = searchData.map((search) =>
       search.get({ plain: true })
     );
-    res.render('listing', { searchResults, searchBool: true });
     res.status(200).json(searchResults);
   } catch (error) {
     res.status(500).json(error);
