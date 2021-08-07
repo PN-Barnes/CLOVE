@@ -157,4 +157,35 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/edit', withAuth, async (req, res) => {
+  try {
+  //   const dbUserData = await User.findByPk(req.session.userId, {
+  //     attributes: { exclude: ['password'] },
+  //     include: [
+  //       {
+  //         model: Basket,
+  //         where: { id: req.params.id },
+  //         include: [
+  //           {
+  //             model: Product,
+  //           }
+  //         ]
+  //       }
+  //     ],
+  //   });
+
+  //   const user = dbUserData.get({ plain: true });
+    // res.render('update-basket', {
+    //   ...user,
+    //   loggedIn: req.session.loggedIn,
+    //   profilePage: true,
+    // });
+    res.render('test');
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
