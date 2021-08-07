@@ -6,6 +6,7 @@ body {
 header, main{
     width: 80%;
 }
+
 main {
     margin-top: 40px;
 }
@@ -55,7 +56,6 @@ nav a {
 
 .nav-links a:hover {
     background-color: #EEE1C6;
-    border-radius: 5px;
     color: black;
 }
 
@@ -64,65 +64,6 @@ nav a {
     overflow: auto;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-areas: 
-        'header-left header-left header-left header-right header-right header-right'
-        'left-one left-one center-one center-one right-one right-one';
-    grid-gap: 10px;
-    padding: 10px;
-
-}
-
-.grid-item-1 {
-    grid-area: header-left;
-    font-size: smaller;
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px;
-    background-image: url(../assets/gardenimg.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
-.grid-item-2 {
-    grid-area: header-right;
-    font-size: smaller;
-    text-align: justify;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.grid-item-3 {
-    grid-area: left-one;
-    font-size: smaller;
-    text-align: justify;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.grid-item-4 {
-    grid-area: center-one;
-    font-size: smaller;
-    text-align: justify;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.grid-item-5 {
-    grid-area: right-one;
-    font-size: smaller;
-    text-align: justify;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.donate-btn {
-    border: none;
-    padding: 5px;
-    padding: 5px;
+.row {
+    padding-bottom: 20px;
 }
