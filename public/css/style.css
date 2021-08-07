@@ -51,3 +51,8 @@ nav a:hover {
     height: 170px;
     overflow: auto;
 }
+
+.homepage-container {
+    display: flex;
+    flex-wrap: wrap;
+}
