@@ -1,8 +1,8 @@
-const User = require('./user');
-const Product = require('./product');
-const Rating = require('./rating');
-const Message = require('./message');
-const Basket = require('./basket');
+const User = require('./User');
+const Product = require('./Product');
+const Rating = require('./Rating');
+const Message = require('./Message');
+const Basket = require('./Basket');
 
 // foreign keys of basket
 Product.hasMany(Basket, {

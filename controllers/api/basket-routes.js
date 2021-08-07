@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET info of basket id === req.params.id
-router.get('/id/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const dbBasketData = await Basket.findByPk(req.params.id, {
       include: [
