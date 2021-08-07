@@ -160,7 +160,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 router.get('/edit', withAuth, async (req, res) => {
   try {
     res.render('profile-edit');
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -42,7 +42,7 @@ const submitFileHandler = async (e) => {
 const uploadeImage = async (base64EncodedImage) => {
   console.log(base64EncodedImage);
   try {
-    const response = await fetch("/api/tests", {
+    const response = await fetch("/api/users/profile", {
       method: 'POST',
       body: JSON.stringify({
         data: base64EncodedImage

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const cloudinary = require('../../config/cloudinary');
+const withAuth = require('../../utils/auth');
 
 // GET user info with username === req.params.username
 router.get('/name/:username', async (req, res) => {
@@ -39,6 +41,44 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// change profile image of user logged in
+router.post("/profile", withAuth, async (req, res) => {
+  try {
+    const fileStr = req.body.data;
+    const uploadedResponse = await cloudinary.uploader
+                                      .upload(fileStr, {
+                                        upload_preset: 'dev_setup'
+                                      });
+    console.log("success", JSON.stringify(uploadedResponse, null, 2));
+
+    let dbUserData = await User.findByPk(req.session.userId);
+    if (!dbUserData) {
+        res.status(400).json({ message: 'No user found with that id!' });
+        return;
+    } else if (dbUserData.get({plain: true}).id !== req.session.userId) {
+        res.status(400).json({ message: 'Sorry you cannot edit the profile of that user!' });
+    } else {
+        dbUserData = await User.update(
+            {
+                profile_picture: uploadedResponse.url,
+            },
+            {
+                where: {
+                    id: req.session.userId,
+                },
+            }
+        );
+        console.log(dbUserData);
+        res.status(200).json({ message: 'Updated successfully!' });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+module.exports = router;
 
 // login to an existing account
 router.post('/login', async (req, res) => {
