@@ -67,3 +67,8 @@ nav a {
 .row {
     padding-bottom: 20px;
 }
+
+.card-header {
+    background-color: #00471B;
+    color: white;
+}
