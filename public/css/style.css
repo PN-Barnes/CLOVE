@@ -72,3 +72,13 @@ nav a {
     background-color: #00471B;
     color: white;
 }
+
+.btn {
+    background-color: #00471B;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #EEE1C6;
+    color: black;
+}
