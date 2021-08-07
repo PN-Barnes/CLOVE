@@ -25,4 +25,22 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/searchResults', async (req, res) => {
+  try {
+    console.log('Now Work');
+    const searchData = await Product.findAll();
+    console.log(searchData);
+    if (!searchData) {
+      res.status(400).json({ message: 'No Product with this name!' });
+    }
+
+    const searchResults = searchData.map((search) =>
+      search.get({ plain: true })
+    );
+    res.render('searchResults', { searchResults });
+    console.log(searchResults);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 module.exports = router;

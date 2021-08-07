@@ -43,13 +43,16 @@
     </div>
   </form>
 
-{{#each searchResult}}
+{{#if searchResult}}
+<h4>Local Listings</h4>
 {{> searchListingCard}}
-{{/each}}
+{{else}}
+<h4>Search Results</h4>
+{{/if}}
 </div>
 
 
 
 
-<script src='./js/getSearch.js'></script>
+<script src='/js/getSearch.js'></script>
 {{! NEEDS SEARCH RESULTS LISTED }}
