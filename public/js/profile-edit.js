@@ -54,6 +54,7 @@ const uploadeImage = async (base64EncodedImage) => {
     
     if (response.ok) {
       console.log("uploaded");
+      document.location.replace("/profile");
     } else {
       alert("fail to upload");
     }
