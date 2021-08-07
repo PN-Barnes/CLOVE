@@ -23,7 +23,7 @@ router.post('/', withAuth, async (req, res) => {
 // GET BASKET AND PRODUCTS BY SEARCH
 router.get('/product/:product_name', async (req, res) => {
   try {
-    console.log('Please work');
+    console.log('Now Work');
     const searchData = await Product.findAll({
       where: {
         name: req.params.product_name,

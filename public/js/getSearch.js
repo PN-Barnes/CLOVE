@@ -1,6 +1,6 @@
 const getSearchResults = async (event) => {
   event.preventDefault();
-
+  console.log('this button was pressed!');
   const zipcode = document.querySelector('#zipCode').value.trim();
   const username = document.querySelector('#usernameInput').value.trim();
   const product_name = document.querySelector('#productInput').value.trim();
@@ -13,10 +13,13 @@ const getSearchResults = async (event) => {
   });
 
   if (response.ok) {
-    document.locaiton.replace('listing');
+    console.log('made it through the backend');
+    document.location.replace('/listing');
   } else {
     alert('Failed to search for Product.');
   }
 };
 
-document.querySelector('form').addEventListener('submit', getSearchResults);
+document
+  .querySelector('#searchButton')
+  .addEventListener('click', getSearchResults);
