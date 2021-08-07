@@ -1,8 +1,17 @@
+body {
+    background-image: url("../assets/wood-background.png");
+}
+
 header, main{
     width: 80%;
 }
 main {
     margin-top: 40px;
+}
+
+.navbar {
+    background-color: #014421;
+    margin-top: 0;
 }
 
 .w-60 {
@@ -18,8 +27,24 @@ main {
     padding: 5px 10px;
 }
 
+h1 {
+    color: white;
+}
+
 a {
+    color: white;
     text-decoration: none;
+}
+
+nav a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+nav a:hover {
+    background-color: black;
+    padding: 27.5px;
+    color: white;
 }
 
 .profile-small-section {
