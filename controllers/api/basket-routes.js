@@ -24,19 +24,21 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/product/:product_name', async (req, res) => {
   try {
     console.log('Please work');
-    const dbBasketData = await Product.findOne({
+    const searchData = await Product.findAll({
       where: {
         name: req.params.product_name,
       },
     });
-    console.log(dbBasketData);
-    if (!dbBasketData) {
+    console.log(searchData);
+    if (!searchData) {
       res.status(400).json({ message: 'No Product with this name!' });
     }
 
-    const searchResults
-    res.render('listing', {})
-    res.status(200).json(dbBasketData);
+    const searchResults = searchData.map((search) =>
+      search.get({ plain: true })
+    );
+    res.render('listing', { searchResults, searchBool: true });
+    res.status(200).json(searchResults);
   } catch (error) {
     res.status(500).json(error);
   }
