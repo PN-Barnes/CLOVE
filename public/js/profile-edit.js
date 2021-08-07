@@ -24,6 +24,7 @@ const handleFiles = async (e) => {
 function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
+    console.log(file);
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
@@ -34,7 +35,8 @@ const submitFileHandler = async (e) => {
   e.preventDefault();
   console.log("submit file");
   if (!imageData) return;
-  uploadeImage(imageData);    // react thing
+  uploadeImage(imageData);
+  imageData = null;
 }
 
 const uploadeImage = async (base64EncodedImage) => {
@@ -62,7 +64,7 @@ const uploadeImage = async (base64EncodedImage) => {
 }
 
 // file input element
-const inputElement = document.querySelector('#avatar');
+const inputElement = document.querySelector('#file');
 inputElement.addEventListener('change', handleFiles);
 
 // upload button
