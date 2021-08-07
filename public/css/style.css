@@ -1,8 +1,23 @@
+body {
+    background-color: #EEE1C6;
+    font-family: 'B612';
+}
+
 header, main{
     width: 80%;
 }
+
 main {
     margin-top: 40px;
+}
+
+.nav-title {
+    color: white;
+}
+
+.navbar-css {
+    background-color: #00471B;
+    margin-top: 0;
 }
 
 .w-60 {
@@ -18,11 +33,42 @@ main {
     padding: 5px 10px;
 }
 
+h1 {
+    color: white;
+}
+
+h3 {
+    background-color: #00471B;
+    padding: 5px;
+    color: white;
+}
+
 a {
     text-decoration: none;
+}
+
+nav a {
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding: 20px;
+}
+
+.nav-links a:hover {
+    background-color: #EEE1C6;
+    color: black;
 }
 
 .profile-small-section {
     height: 170px;
     overflow: auto;
+}
+
+.row {
+    padding-bottom: 20px;
+}
+
+.card-header {
+    background-color: #00471B;
+    color: white;
 }
