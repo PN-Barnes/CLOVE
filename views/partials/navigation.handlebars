@@ -3,18 +3,25 @@
     {{#if profilePage}}
     <h1><a href="/profile">Profile</a></h1>
     {{else}}
-    <h1>CLOVE</h1>
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand" href="#">
+      <img src="/assets/clove-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <b class="nav-title">CLOVE</b>
+      </a>
+    </nav>
     {{/if}}
     <nav>
-      <a href="/">Home</a>
-      <a href="/profile">Profile</a>
-      <a href="/listing"><i class="fas fa-search"></i></a>
-      {{#if loggedIn}}
-      <a id="logout">logout</a>
-      {{else}}
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-      {{/if}}
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/listing"><i class="fas fa-search"></i></a>
+        {{#if loggedIn}}
+        <a id="logout">Logout</a>
+        {{else}}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        {{/if}}
+      </div>
     </nav>
   </header>
 </div>

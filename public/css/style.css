@@ -1,5 +1,6 @@
 body {
-    background-color: #987654;
+    background-color: #EEE1C6;
+    font-family: 'B612';
 }
 
 header, main{
@@ -9,8 +10,12 @@ main {
     margin-top: 40px;
 }
 
+.nav-title {
+    color: white;
+}
+
 .navbar-css {
-    background-color: #014421;
+    background-color: #00471B;
     margin-top: 0;
 }
 
@@ -31,6 +36,13 @@ h1 {
     color: white;
 }
 
+h3 {
+    background-color: #00471B;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
 a {
     text-decoration: none;
 }
@@ -42,9 +54,10 @@ nav a {
     padding: 20px;
 }
 
-nav a:hover {
-    background-color: #5dbb63;
-    color: white;
+.nav-links a:hover {
+    background-color: #EEE1C6;
+    border-radius: 5px;
+    color: black;
 }
 
 .profile-small-section {
@@ -59,6 +72,7 @@ nav a:hover {
         'left-one left-one center-one center-one right-one right-one';
     grid-gap: 10px;
     padding: 10px;
+
 }
 
 .grid-item-1 {
@@ -97,4 +111,5 @@ nav a:hover {
 
 .donate-btn {
     border: none;
+    padding: 5px;
 }
