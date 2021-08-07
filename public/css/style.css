@@ -39,7 +39,6 @@ h1 {
 h3 {
     background-color: #00471B;
     padding: 5px;
-    border-radius: 5px;
     color: white;
 }
 
@@ -77,7 +76,7 @@ nav a {
 
 .grid-item-1 {
     grid-area: header-left;
-    font-size: 30px;
+    font-size: smaller;
     text-align: center;
 }
 
@@ -85,31 +84,40 @@ nav a {
     grid-area: header-right;
     font-size: smaller;
     text-align: justify;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .grid-item-3 {
     grid-area: left-one;
     font-size: smaller;
     text-align: justify;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .grid-item-4 {
     grid-area: center-one;
     font-size: smaller;
     text-align: justify;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .grid-item-5 {
     grid-area: right-one;
-    font-size: 30px;
-    text-align: center;
-}
-
-.card-body {
-    font-size: small;
+    font-size: smaller;
+    text-align: justify;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .donate-btn {
     border: none;
+    padding: 5px;
     padding: 5px;
 }
