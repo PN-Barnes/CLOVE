@@ -78,6 +78,11 @@ nav a {
     grid-area: header-left;
     font-size: smaller;
     text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    background-image: url(../assets/gardenimg.png);
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .grid-item-2 {
