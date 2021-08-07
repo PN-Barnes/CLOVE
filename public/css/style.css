@@ -32,11 +32,11 @@ h1 {
 }
 
 a {
-    color: white;
     text-decoration: none;
 }
 
 nav a {
+    color: white;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -58,55 +58,43 @@ nav a:hover {
         'header-left header-left header-left header-right header-right header-right'
         'left-one left-one center-one center-one right-one right-one';
     grid-gap: 10px;
-    background-color: black;
     padding: 10px;
 }
 
 .grid-item-1 {
     grid-area: header-left;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     font-size: 30px;
     text-align: center;
 }
 
 .grid-item-2 {
     grid-area: header-right;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+    font-size: smaller;
+    text-align: justify;
 }
 
 .grid-item-3 {
     grid-area: left-one;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+    font-size: smaller;
+    text-align: justify;
 }
 
 .grid-item-4 {
     grid-area: center-one;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+    font-size: smaller;
+    text-align: justify;
 }
 
 .grid-item-5 {
     grid-area: right-one;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     font-size: 30px;
     text-align: center;
 }
 
 .card-body {
     font-size: small;
+}
+
+.donate-btn {
+    border: none;
 }
