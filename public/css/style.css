@@ -39,11 +39,11 @@ nav a {
     color: white;
     padding-left: 30px;
     padding-right: 30px;
+    padding: 20px;
 }
 
 nav a:hover {
-    background-color: black;
-    padding: 15px;
+    background-color: #5dbb63;
     color: white;
 }
 
