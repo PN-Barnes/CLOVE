@@ -34,6 +34,8 @@ router.get('/product/:product_name', async (req, res) => {
       res.status(400).json({ message: 'No Product with this name!' });
     }
 
+    const searchResults
+    res.render('listing', {})
     res.status(200).json(dbBasketData);
   } catch (error) {
     res.status(500).json(error);
