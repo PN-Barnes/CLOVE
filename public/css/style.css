@@ -1,5 +1,5 @@
 body {
-    background-image: url("../assets/wood-background.png");
+    background-color: #987654;
 }
 
 header, main{
@@ -9,7 +9,7 @@ main {
     margin-top: 40px;
 }
 
-.navbar {
+.navbar-css {
     background-color: #014421;
     margin-top: 0;
 }
@@ -43,7 +43,7 @@ nav a {
 
 nav a:hover {
     background-color: black;
-    padding: 27.5px;
+    padding: 15px;
     color: white;
 }
 
