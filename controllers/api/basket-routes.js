@@ -21,6 +21,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // GET BASKET AND PRODUCTS BY SEARCH
+
 router.get('/product/:product_name', async (req, res) => {
   try {
     console.log('Now Work');
@@ -34,7 +35,7 @@ router.get('/product/:product_name', async (req, res) => {
       search.get({ plain: true })
     );
     console.log(searchResults);
-    res.status(200).json({ searchResults });
+    //res.status(200).json({ searchResults });
     res.render('searchResults', { searchResults });
   } catch (error) {
     res.status(500).json(error);

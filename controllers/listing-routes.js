@@ -3,6 +3,13 @@ const { User, Basket, Product } = require('../models');
 const withAuth = require('../utils/auth');
 const Op = require('sequelize').Op;
 
+router.get('/searchResults', async (req, res) => {
+  try {
+    console.log('Grabbing Results page');
+  } catch (error) {
+    console.log(error);
+  }
+});
 // NEED to add data retrieval to page
 
 router.get('/', async (req, res) => {
@@ -22,14 +29,6 @@ router.get('/', async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
-  }
-});
-
-router.get('/searchResults', async (req, res) => {
-  try {
-    console.log('Grabbing Results page');
-  } catch (error) {
-    console.log(error);
   }
 });
 
