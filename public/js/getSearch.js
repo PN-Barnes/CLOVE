@@ -5,7 +5,7 @@ const getSearchResults = async (event) => {
   const zipcode = document.querySelector('#zipCode').value.trim();
   const username = document.querySelector('#usernameInput').value.trim();
   const product_name = document.querySelector('#productInput').value.trim();
-  const response = await fetch(`/api/baskets`, {
+  const response = await fetch(`/api/listing/searchResults/${product_name}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

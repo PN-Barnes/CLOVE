@@ -25,10 +25,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/searchResults', async (req, res) => {
+router.get('/searchResults/:product_name', async (req, res) => {
   try {
     console.log('Now Work');
-    const searchData = await Product.findAll();
+    const searchData = await Product.findOne({
+      where: {
+        name: req.params.product_name,
+      },
+    });
     console.log(searchData);
     if (!searchData) {
       res.status(400).json({ message: 'No Product with this name!' });
