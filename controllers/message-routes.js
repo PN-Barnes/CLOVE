@@ -54,7 +54,7 @@ router.get("/", withAuth, async (req, res) => {
     res.render("message", {
       ...messages,
       loggedIn: req.session.loggedIn,
-      profilePage: true,
+      messagePage: true,
     });
   } catch (err) {
     console.log(err);
