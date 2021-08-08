@@ -30,6 +30,22 @@ var searchBy= sel.options[sel.selectedIndex].text;
   if (term) {
     if (searchBy === "Username") {
       console.log("search by username");
+      try {
+        const response = await fetch(`/api/users/name/${term}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const data = await response.json();
+        if (data) {
+          document.location.replace(`/profile/user/${data.id}`);
+        } else {
+          alert("No user found with this username");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     } else if (searchBy === "Zip Code") {
       console.log("search by zip code");
     } else {
