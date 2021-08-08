@@ -1,22 +1,9 @@
 <h4>New Page
 </h4>
 <section>
-  <div class='card' style='width: 18rem'>
-    <img class='card-img-top' src='...' alt='Card image cap' />
-    <div class='card-body'>
-      <h5 class='card-title'>{{name}}</h5>
-      <p class='card-text'>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <h6>Price $</h6>
-      {{! add a unit or quantity variale ie. lbs or each or bulk sell }}
-    </div>
-    <div class='card-body'>
-      <button type='submit' class='btn btn-primary'>Comment</button>
-      <button type='submit' class='btn btn-primary'>Message</button>
-    </div>
-  </div>
+  {{#each searchResults}}
+  {{> searchListingCard}}
+  {{/each}}
 </section>
 
 <script src='/js/getSearch.js'></script>

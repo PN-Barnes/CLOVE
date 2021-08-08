@@ -25,7 +25,7 @@ router.get('/product/:product_name', async (req, res) => {
   try {
     console.log('Now Work');
     const searchData = await Product.findAll();
-    console.log(searchData);
+    //console.log(searchData);
     if (!searchData) {
       res.status(400).json({ message: 'No Product with this name!' });
     }
@@ -33,7 +33,9 @@ router.get('/product/:product_name', async (req, res) => {
     const searchResults = searchData.map((search) =>
       search.get({ plain: true })
     );
-    res.render('listing', { searchResults });
+    console.log(searchResults);
+    res.status(200).json({ searchResults });
+    res.render('searchResults', { searchResults });
   } catch (error) {
     res.status(500).json(error);
   }

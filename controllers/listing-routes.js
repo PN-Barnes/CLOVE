@@ -25,6 +25,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/searchResults', async (req, res) => {
+  try {
+    console.log('Grabbing Results page');
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.get('/searchResults/:product_name', async (req, res) => {
   try {
     console.log('Now Work');
@@ -45,4 +53,5 @@ router.get('/searchResults/:product_name', async (req, res) => {
     res.status(500).json(error);
   }
 });
+
 module.exports = router;
