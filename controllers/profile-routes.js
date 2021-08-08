@@ -187,6 +187,7 @@ router.get('/user/:id', async (req, res) => {
     console.log("profile");
     console.log(user);
     console.log(req.params.id);
+    console.log("req.session.userId");
     console.log(req.session.userId);
     console.log("============");
     // display profile page with data of the user logged in

@@ -1,0 +1,27 @@
+<div>
+  <form>
+    <div class="form-group">
+        <label for="search-by">Search By</label>
+        <select class="form-control" id="search-by">
+            <option>Username</option>
+            <option>Zip Code</option>
+            <option>Product Name</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="term"></label>
+        <input type="text" class="form-control" id="term">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn  mb-2">Search</button>
+    </div>
+  </form>
+</div>
+<div class="col-sm-12">
+  <div class="row baskets-display">
+  {{#each baskets}}
+  {{> basket-list}}
+  {{/each}}
+</div>
+
+<script src='/js/getSearch.js'></script>

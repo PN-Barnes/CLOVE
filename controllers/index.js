@@ -3,11 +3,11 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
 const profileRoutes = require('./profile-routes.js');
-const listingRoute = require('./listing-routes');
+const basketRoutes = require('./basket-routes');
 
 router.use('/', homeRoutes);
 router.use('/profile', profileRoutes);
 router.use('/api', apiRoutes);
-router.use('/listing', listingRoute);
+router.use('/baskets', basketRoutes);
 
 module.exports = router;
