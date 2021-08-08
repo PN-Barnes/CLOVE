@@ -38,9 +38,7 @@ router.get('/searchResults/:product_name', async (req, res) => {
       res.status(400).json({ message: 'No Product with this name!' });
     }
 
-    const searchResults = searchData.map((search) =>
-      search.get({ plain: true })
-    );
+    const searchResults = search.get({ plain: true });
     res.render('searchResults', { searchResults });
     console.log(searchResults);
   } catch (error) {
