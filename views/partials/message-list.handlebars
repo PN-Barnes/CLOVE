@@ -1,0 +1,11 @@
+{{#if isReceipient}}
+<a href="/profile/message/{{sender.id}}">
+  <div>From {{sender.username}} on {{formatDate date_created}}</div>
+  <div>{{content}}</div>
+</a>
+{{else}}
+<a href="/profile/message/{{sender.id}}">
+  <div>To {{recipient.username}} on {{formatDate date_created}}</div>
+  <div>{{content}}</div>
+</a>
+{{/if}}

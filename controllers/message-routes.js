@@ -102,15 +102,14 @@ router.get("/:id", withAuth, async (req, res) => {
       message.isReceipient = message.recipient_id === req.session.userId;
     }
 
-    //   res.status(200).json(messages);
     // display message page with data of the user logged in
-    console.log(messages);
-    // res.render("message-with", {
-    //   messages,
-    //   loggedIn: req.session.loggedIn,
-    //   profilePage: true,
-    // });
-    res.status(200).json(messages);
+    console.log({ messages, loggedIn: req.session.loggedIn, profilePage: true });
+    res.render("message-with", {
+      messages,
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
+    // res.status(200).json({ messages, loggedIn: req.session.loggedIn, profilePage: true });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
