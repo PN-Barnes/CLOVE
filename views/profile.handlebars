@@ -2,19 +2,33 @@
   <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-        <a href="/profile/edit/">
+        {{#if owner}}
+          <a href="/profile/edit/">
+        {{/if}}
           {{#if profile_picture}}
             <img class="card-img-top" src="{{profile_picture}}" alt="profile picture">
           {{else}}
             <img class="card-img-top" src="/assets/profile.jpeg" alt="profile picture">
           {{/if}}
-          <h5 class="card-title">Hello {{username}}!</h5>
+          {{#if owner}}
+            <h5 class="card-title">Hello {{username}}!</h5>
+          {{else}}
+            <h5 class="card-title">{{username}}!</h5>
+          {{/if}}
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Average Rating: {{ratingAverage}}</li>
+            <li class="list-group-item">Zip Code: {{zipcode}}</li>
+            {{#if ratingAverage}}
+              <li class="list-group-item">Average Rating: {{ratingAverage}}</li>
+            {{else}}
+              <li class="list-group-item">No rating Yet</li>
+            {{/if}}
           </ul>
-        </a>
+        {{#if owner}}
+          </a>
+        {{/if}}
       </div>
     </div>
+    {{#if owner}}
     <div class="card profile-small-section">
       <div class="card-body">
         <a href="/profile/message/">
@@ -27,29 +41,42 @@
         </a>
       </div>
     </div>
+    {{/if}}
     <div class="card profile-small-section">
       <div class="card-body">
-        <a href="/profile/rating/">
+        {{#if owner}}
+          <a href="/profile/rating/">
+        {{/if}}
           <h5 class="card-title">Ratings</h5>
           <ul class="list-group list-group-flush">
             {{#each ratings}}
               {{> profile-rating-list}}
             {{/each}}
           </ul>
+        {{#if owner}}
         </a>
+        {{/if}}
       </div>
     </div>
   </div>
 
   <div class="col-sm-9">
     <div class="row baskets-display">
-      {{#each baskets}}
-        {{> profile-basket-list}}
-      {{/each}}
+      {{#if owner}}
+        {{#each baskets}}
+          {{> profile-basket-list}}
+        {{/each}}
+      {{else}}
+        {{#each baskets}}
+          {{> basket-list}}
+        {{/each}}
+      {{/if}}
     </div>
-    <div class="position-fixed w-60">
+    {{#if owner}}
+    <div>
       <button id="new-basket" class="d-block mx-auto">+ Add New Item</button>
     </div>
+    {{/if}}
   </div>
 </div>
 

@@ -109,12 +109,101 @@ router.get('/', withAuth, async (req, res) => {
       ...user,
       loggedIn: req.session.loggedIn,
       profilePage: true,
+      owner: true
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+// get a certain user's profile page with id === req.params.id
+router.get('/user/:id', async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const dbUserData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] },
+        include: [
+          {
+            model: Basket,
+            include: [
+              {
+                model: Product,
+              },
+            ]
+          },
+          {
+            model: Rating,
+            on: {
+              [Op.or]: [
+                {
+                  recipient_id: req.params.id
+                }, 
+                {
+                  poster_id: req.params.id
+                }
+              ]
+            },
+            include: [
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "poster",
+              },
+              {
+                model: User,
+                attributes: {
+                  exclude: ['password'],
+                },
+                as: "recipient",
+              }
+            ]
+          }
+        ],
+        order: [[Rating, 'date_created', 'DESC']],
+    });
+
+    console.log(dbUserData);
+    const user = dbUserData.get({ plain: true });
+    console.log(user);
+    let totalScore = 0;
+    let countRatingReceived = 0;
+    for (const rating of user.ratings) {
+      if (rating.recipient_id === req.session.userId) {
+        rating.isRecipient = true;
+        totalScore += rating.score;
+        countRatingReceived++;
+      }
+      else {
+        rating.isRecipient = false;
+      }
+    }
+    
+    user.ratingAverage = Math.floor(totalScore / countRatingReceived + 0.5);
+    // res.status(200).json(user);
+    console.log("============");
+    console.log("profile");
+    console.log(user);
+    console.log(req.params.id);
+    console.log("req.session.userId");
+    console.log(req.session.userId);
+    console.log("============");
+    // display profile page with data of the user logged in
+    res.render('profile', {
+      ...user,
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+      // cannot use === since param.id is string while session.userId is integer
+      owner: req.params.id == req.session.userId
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/newbasket', withAuth, async (req, res) => {
   try {
@@ -160,6 +249,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 router.get('/edit', withAuth, async (req, res) => {
   try {
     res.render('profile-edit');
+    // res.status(200).json("profile-edit");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -20,28 +20,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// GET BASKET AND PRODUCTS BY SEARCH
-
-router.get('/product/:product_name', async (req, res) => {
-  try {
-    console.log('Now Work');
-    const searchData = await Product.findAll();
-    //console.log(searchData);
-    if (!searchData) {
-      res.status(400).json({ message: 'No Product with this name!' });
-    }
-
-    const searchResults = searchData.map((search) =>
-      search.get({ plain: true })
-    );
-    console.log(searchResults);
-    //res.status(200).json({ searchResults });
-    res.render('listing', { searchResults });
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
 // GET info of basket
 router.get('/', async (req, res) => {
   try {
@@ -87,6 +65,8 @@ router.get('/id/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 // UPDATE an existing basket with id === req.params.id
 router.put('/:id', withAuth, async (req, res) => {
