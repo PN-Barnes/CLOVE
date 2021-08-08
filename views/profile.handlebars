@@ -62,32 +62,18 @@
 
   <div class="col-sm-9">
     <div class="row baskets-display">
-      {{#each baskets}}
-        {{!-- {{> profile-basket-list}} --}}
-        <div class="col-sm-3">
-          <div class="card">
-              <div class="card-body basket-list-card">
-                  {{#if owner}}
-                  <a href="/profile/edit/{{id}}">
-                  {{/if}}
-                    <div class="card-title text-center">
-                        <h2>{{product.name}}</h2>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Stock: {{stock}} lb</li>
-                        <li class="list-group-item">Price: ${{price}}/lb</li>
-                        <li class="list-group-item">Description: <br /> {{description}}</li>
-                    </ul>
-                  {{#if owner}}
-                  </a>
-                  {{/if}}
-                </div>
-            </div>
-        </div>
-      {{/each}}
+      {{#if owner}}
+        {{#each baskets}}
+          {{> profile-basket-list}}
+        {{/each}}
+      {{else}}
+        {{#each baskets}}
+          {{> basket-list}}
+        {{/each}}
+      {{/if}}
     </div>
     {{#if owner}}
-    <div class="position-fixed w-60">
+    <div>
       <button id="new-basket" class="d-block mx-auto">+ Add New Item</button>
     </div>
     {{/if}}
