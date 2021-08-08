@@ -57,13 +57,6 @@ router.post("/profile", withAuth, async (req, res) => {
     }, uploadCallback);
     console.log("success", JSON.stringify(uploadedResponse, null, 2));
 
-    // router.post("/profile", withAuth, async (req, res) => {
-    //   try {
-    //     const fileStr = req.body.data;
-    //     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-    //       upload_preset: "dev_setup",
-    //    });
-
     let dbUserData = await User.findByPk(req.session.userId);
     if (!dbUserData) {
       res.status(400).json({ message: "No user found with that id!" });
