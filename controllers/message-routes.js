@@ -48,7 +48,7 @@ router.get("/", withAuth, async (req, res) => {
     }
     const messages = { messageReceived, messageSent };
 
-    //   res.status(200).json(messages);
+    // res.status(200).json(messages);
     // display message page with data of the user logged in
     console.log(messages);
     res.render("message", {
@@ -107,7 +107,7 @@ router.get("/:id", withAuth, async (req, res) => {
     res.render("message-with", {
       messages,
       loggedIn: req.session.loggedIn,
-      profilePage: true,
+      messagePage: true,
     });
     // res.status(200).json({ messages, loggedIn: req.session.loggedIn, profilePage: true });
   } catch (err) {
