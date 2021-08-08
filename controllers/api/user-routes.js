@@ -46,10 +46,23 @@ router.post("/", async (req, res) => {
 router.post("/profile", withAuth, async (req, res) => {
   try {
     const fileStr = req.body.data;
+    let uploadCallback = function(err, callResult) {
+            console.log("=======");
+            console.log(err);
+            console.log(callResult);
+            console.log("=======");
+          };
     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
       upload_preset: "dev_setup",
-    });
+    }, uploadCallback);
     console.log("success", JSON.stringify(uploadedResponse, null, 2));
+
+    // router.post("/profile", withAuth, async (req, res) => {
+    //   try {
+    //     const fileStr = req.body.data;
+    //     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+    //       upload_preset: "dev_setup",
+    //    });
 
     let dbUserData = await User.findByPk(req.session.userId);
     if (!dbUserData) {
