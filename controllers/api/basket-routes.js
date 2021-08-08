@@ -36,7 +36,7 @@ router.get('/product/:product_name', async (req, res) => {
     );
     console.log(searchResults);
     //res.status(200).json({ searchResults });
-    res.render('searchResults', { searchResults });
+    res.render('listing', { searchResults });
   } catch (error) {
     res.status(500).json(error);
   }

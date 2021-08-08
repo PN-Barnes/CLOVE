@@ -41,6 +41,23 @@
       </div>
     </div>
   </form>
+  <div>
+    {{#if searchResults}}
+      {{log true}}
+      <div>
+      {{#each searchResults}}
+      <div>
+      {{> searchListingCard}}
+      </div>
+      {{/each}}
+      </div>
+    {{else}}
+      {{log false}}
+      <div>
+        <h5>Search Results</h5>
+      </div>
+    {{/if}}
+  </div>
 </div>
 
 <script src='/js/getSearch.js'></script>
