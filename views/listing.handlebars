@@ -38,11 +38,18 @@
     </div>
     <div class='form-group row'>
       <div class='col-sm-10'>
-        <button type='submit' class='btn'>Search</button>
+        <button type='submit' class='btn' id="searchButton">Search</button>
       </div>
     </div>
   </form>
+
+
+<h4>Local Listings</h4>
+{{> searchListingCard}}
 </div>
 
-{{> searchListingCard}}
+
+
+
+<script src='/js/getSearch.js'></script>
 {{! NEEDS SEARCH RESULTS LISTED }}

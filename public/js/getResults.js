@@ -1,0 +1,1 @@
+const getResults = (req, res);
