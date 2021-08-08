@@ -20,7 +20,11 @@ router.get('/', async (req, res) => {
     const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
     // res.status(200).json(baskets);
     console.log(baskets);
-    res.render('search-page', { baskets });
+    res.render('search-page', {
+      baskets,
+      loggedIn: req.session.loggedIn,
+      profilePage: false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -47,7 +51,11 @@ router.get('/product/:name', async (req, res) => {
     const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
     // res.status(200).json(baskets);
     console.log(baskets);
-    res.render('search-page',  { baskets });
+    res.render('search-page',  {
+      baskets,
+      loggedIn: req.session.loggedIn,
+      profilePage: false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -73,7 +81,10 @@ router.get('/zipcode/:zipcode', async (req, res) => {
     });
     const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
     console.log(baskets);
-    res.render('search-page', { baskets });
+    res.render('search-page', {
+      baskets,
+      loggedIn: req.session.loggedIn,
+      profilePage: false,});
     // res.status(200).json(baskets);
   } catch (err) {
     res.status(500).json(err);

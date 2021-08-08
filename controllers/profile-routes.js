@@ -248,7 +248,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
 router.get('/edit', withAuth, async (req, res) => {
   try {
-    res.render('profile-edit');
+    res.render('profile-edit', {
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
     // res.status(200).json("profile-edit");
   } catch (err) {
     console.log(err);
