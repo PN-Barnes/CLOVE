@@ -21,20 +21,22 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // GET BASKET AND PRODUCTS BY SEARCH
-router.get('/:product_name', async (req, res) => {
+
+router.get('/product/:product_name', async (req, res) => {
   try {
-    console.log('Please work');
-    const dbBasketData = await Product.findOne({
-      where: {
-        name: req.params.product_name,
-      },
-    });
-    console.log(dbBasketData);
-    if (!dbBasketData) {
+    console.log('Now Work');
+    const searchData = await Product.findAll();
+    //console.log(searchData);
+    if (!searchData) {
       res.status(400).json({ message: 'No Product with this name!' });
     }
 
-    res.status(200).json(dbBasketData);
+    const searchResults = searchData.map((search) =>
+      search.get({ plain: true })
+    );
+    console.log(searchResults);
+    //res.status(200).json({ searchResults });
+    res.render('listing', { searchResults });
   } catch (error) {
     res.status(500).json(error);
   }
