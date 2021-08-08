@@ -2,11 +2,17 @@
   <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-        <img class="card-img-top" src="/assets/profile.jpeg" alt="Card image cap">
-        <h5 class="card-title">Hello {{username}}!</h5>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Average Rating: {{ratingAverage}}</li>
-        </ul>
+        <a href="/profile/edit/">
+          {{#if profile_picture}}
+            <img class="card-img-top" src="{{profile_picture}}" alt="profile picture">
+          {{else}}
+            <img class="card-img-top" src="/assets/profile.jpeg" alt="profile picture">
+          {{/if}}
+          <h5 class="card-title">Hello {{username}}!</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Average Rating: {{ratingAverage}}</li>
+          </ul>
+        </a>
       </div>
     </div>
     <div class="card profile-small-section">
