@@ -1,3 +1,27 @@
-<a href="rating/{{id}}">
-    <div>From {{poster.username}} on {{formatDate date_created}} {{score}} {{content}}</div>
+<a href='rating/{{id}}'>
+  <div
+    class='card text-white bg-success mx-auto mt-3 mb-3'
+    style='width: auto;'
+  >
+
+    <div class='card-title'>
+      <h1>
+        From
+        {{poster.username}}
+        on
+        {{formatDate date_created}}
+      </h1>
+    </div>
+    <div class='card-body bg-light text-success'>
+
+      <h2 class='bg-light text-center'><u>
+          Score:
+          {{score}}
+        </u></h2>
+      <p>
+        {{content}}
+      </p>
+    </div>
+  </div>
+
 </a>
