@@ -3,24 +3,9 @@ let imageData;
 const handleFiles = async (e) => {
   console.log("file loaded");
   const file = e.target.files[0];
-  // check if file is loaded correctly
-  // previewFile(file);
-  // const dataUrl = getDataUrl(file);
-  // console.log(dataUrl);
   imageData = await getBase64(file);
 }
 
-// function getDataUrl(img) {
-//   // Create canvas
-//   const canvas = document.createElement('canvas');
-//   const ctx = canvas.getContext('2d');
-//   // Set width and height
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-//   // Draw the image
-//   ctx.drawImage(img, 0, 0);
-//   return canvas.toDataURL('image/jpeg');
-// }
 function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
