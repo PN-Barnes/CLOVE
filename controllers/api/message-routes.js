@@ -72,16 +72,16 @@ router.get("/with/:id", withAuth, async (req, res) => {
   try {
     const dbMessageData = await Message.findAll({
       where: {
-        [Op.or]: {
+        [Op.or]: [{
           [Op.and]: [
             { recipient_id: req.session.userId },
             { sender_id: req.params.id },
-          ],
-          [Op.and]: [
+          ]},
+          {[Op.and]: [
             { recipient_id: req.params.id },
             { sender_id: req.session.userId },
-          ],
-        },
+          ]},
+        ],
       },
       include: [
         {
