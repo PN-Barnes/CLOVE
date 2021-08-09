@@ -1,16 +1,14 @@
 <div class="col-sm-3">
     <div class="card">
-        <div class="card-body basket-list-card">
-            <a href="/profile/edit/{{id}}">
-                <div class="card-title text-center">
-                    <h2>{{product.name}}</h2>
-                </div>
+        <a href="/profile/edit/{{id}}">
+            <div class="card-header text-center">{{product.name}}</div>
+            <div class="card-body basket-list-card">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Stock: {{stock}} lb</li>
-                    <li class="list-group-item">Price: ${{price}}/lb</li>
-                    <li class="list-group-item">Description: <br /> {{description}}</li>
+                    <li class="list-group-item px-0">Stock: {{stock}} lb</li>
+                    <li class="list-group-item px-0">Price: ${{price}}/lb</li>
+                    <li class="list-group-item px-0">Description: <br /> {{description}}</li>
                 </ul>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
 </div>

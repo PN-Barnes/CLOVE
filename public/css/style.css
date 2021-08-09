@@ -1,6 +1,15 @@
+:root {
+    --yellow-light: #EEE1C6;
+    --green-light: rgb(9, 99, 69);
+    --green-hover: rgba(26, 82, 43, 0.7);
+    --green-dark: #00471B;
+    --background-color: rgba(188, 194, 188, 0.2);
+  }
+
 body {
-    background-color: #EEE1C6;
     font-family: 'B612';
+    color: var(--green-dark);
+    background-color: var(--yellow-light);
 }
 
 header, main{
@@ -11,32 +20,35 @@ main {
     margin-top: 40px;
 }
 
-.nav-title {
-    color: white;
+.nav-title, h1, h3, nav a, .donate-btn a{
+    color: var(--yellow-light);
+}
+
+.card li {
+    background-color: inherit;
+    color: var(--green-dark);
+}
+
+.card-body, .card-title {
+    color: var(--green-dark);
 }
 
 .navbar-css {
-    background-color: #00471B;
+    background-color: var(--green-dark);
     margin-top: 0;
 }
 
 .baskets-display {
-    border: solid black 2px;
-    height: 95%;
+    height: 93%;
 }
 
 .basket-list-card {
     padding: 5px 10px;
 }
 
-h1 {
-    color: white;
-}
-
 h3 {
-    background-color: #00471B;
+    background-color: var(--green-dark);
     padding: 5px;
-    color: white;
 }
 
 a {
@@ -44,19 +56,32 @@ a {
 }
 
 nav a {
-    color: white;
     padding-left: 30px;
     padding-right: 30px;
     padding: 20px;
 }
 
-.nav-links a:hover {
-    background-color: #EEE1C6;
-    color: black;
+.nav-links a:hover, .panel-body, .nav-tabs .nav-link {
+    background-color: var(--yellow-light);
+    color: var(--green-dark);
 }
 
-.profile-small-section {
-    height: 170px;
+.card-header {
+    font-size: 1.3rem;
+}
+
+.card-header, .btn, .panel-heading, .nav-tabs button.nav-link.active {
+    background-color: var(--green-dark);
+    color: var(--yellow-light);
+}
+
+.card-body {
+    background-color: var(--background-color);
+    color: var(--green-dark);
+}
+
+.profile-small-section .card-body {
+    height: 150px;
     overflow: auto;
 }
 
@@ -64,43 +89,23 @@ nav a {
     padding-bottom: 20px;
 }
 
-.card-header {
-    background-color: #00471B;
-    color: white;
-}
-
 .donate-btn {
-    background-color: #00471B;
-    color: white;
     border: none;
     border-radius: 5px;
     text-decoration: none;
     padding: 10px;
 }
 
-.donate-btn a {
-    color: white;
-}
-
-.btn {
-    background-color: #00471B;
-    color: white;
-}
-
 .btn:hover {
-    background-color: gray;
-    color: white;
-}
-
-#profile-text {
-    color: #00471B;
+    background-color: var(--green-hover);
+    color: var(--yellow-light);
 }
 
 #search-by {
     border: none;
     padding: 5px;
-    background-color: #00471B;
-    color: white;
+    background-color: var(--green-dark);
+    color: var(--yellow-light);
     border-radius: 5px;
 }
 

@@ -1,13 +1,9 @@
-<div>
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">Message History</div>
-      {{#each messages}}
+<div class="message-block">
+  <div>
+    {{#each messages}}
       {{> message-list}}
-      {{/each}}
-    </div>
+    {{/each}}
   </div>
-
   <div class="card-body">
     <form id="form-create-message-with-name">
       <div class="form-group">

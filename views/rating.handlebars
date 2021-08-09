@@ -12,12 +12,12 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="received" role="tabpanel" aria-labelledby="received-tab">
     {{#each ratingReceived}}
-      {{> rating-received-list}}
+      {{> rating-list}}
     {{/each}}
   </div>
   <div class="tab-pane fade" id="posted" role="tabpanel" aria-labelledby="posted-tab">
     {{#each ratingPosted}}
-      {{> rating-posted-list}}
+      {{> rating-list}}
     {{/each}}
   </div>
   <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="rate-tab">
@@ -56,4 +56,4 @@
   </div>
 </div>
 
-<script src="/js/newRating.js"></script>
+<script src="/js/rating.js"></script>
