@@ -1,7 +1,10 @@
-<section>
+<section class='justify-content-center'>
   {{#if isReceipient}}
     <a href='/profile/message/{{sender.id}}'>
-      <div class='card text-white bg-success mt-3 mb-3' style='width: 36rem;'>
+      <div
+        class='card text-white bg-success mx-auto mt-3 mb-3'
+        style='width: 36rem;'
+      >
         <div class='card-title'>From
           {{sender.username}}
           on
@@ -11,7 +14,10 @@
     </a>
   {{else}}
     <a href='/profile/message/{{recipient.id}}'>
-      <div class='card text-white bg-success mt-3 mb-3' style='width: 36rem;'>
+      <div
+        class='card text-white bg-success mx-auto mb-3 mt-3'
+        style='width: 36rem;'
+      >
         <div class='card-title'>To
           {{recipient.username}}
           on
