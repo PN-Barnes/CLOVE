@@ -39,6 +39,10 @@ Next, open up the folder and create a .env file in the root directory. Inside th
 DB_NAME='clove_db'
 DB_USER='root'
 DB_PASSWORD='<your mySQL password goes here>'
+CLOUDINARY_NAME='<your Cloudinary name goes here>'
+CLOUDINARY_API_KEY='<your Cloudinary API Key goes here>'
+CLOUDINARY_API_SECRET='<your Cloudinary API Secret goes here>'
+CLOUDINARY_URL='<your Cloudinary URL goes here>'
 ```
 
 Once that's done, install the required packages using <b>npm i</b>
@@ -63,7 +67,7 @@ You can now go to http://localhost:3001 and browse our application!
 
 ## Using the App via Heroku
 
-If you don't want to go through all that trouble to view CLOVE, you could simply follow <a href="https://still-reef-24172.herokuapp.com/">this link</a> to view the application from heroku.
+If you don't want to go through all that trouble to view CLOVE, you could simply follow <a href="https://still-reef-24172.herokuapp.com/">https://still-reef-24172.herokuapp.com/</a> to view the application from heroku.
 
 <div id='projectPresentation'></div>
 
