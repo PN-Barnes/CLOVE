@@ -16,7 +16,11 @@
             <h5 class="card-title text-center">{{username}}!</h5>
           {{/if}}
           <ul class="list-group list-group-flush">
-            <li class="list-group-item border-0 px-2 py-1">Zip Code: {{zipcode}}</li>
+            <li class="list-group-item border-0 px-2 py-1">Zip Code: {{zipcode}}
+            {{#if owner}}
+              <span id="new-location"><i class="fas fa-edit text-primary"></i></span>
+            {{/if}}
+            </li>
             {{#if ratingAverage}}
               <li class="list-group-item border-0 px-2 py-1" id="average-rating">Average Rating: {{ratingAverage}}</li>
             {{else}}
@@ -76,8 +80,6 @@
     <div>
       <button id="new-basket" class="btn w-25 d-block mx-auto">+ Add New Item</button>
     </div>
-    <button id="new-location" class="d-block mx-auto"> Change Location
-    </button>
     {{/if}}
   </div>
 </div>
