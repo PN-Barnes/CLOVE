@@ -22,7 +22,7 @@ CLOVE, pronounced ‘see love’, is a community engagement application for back
 
 ## Application Walkthrough
 
-To be inserted after completion
+![Application Walkthrough](media/appwalkthrough.gif)
 
 <div id='usingLocally'></div>
 
