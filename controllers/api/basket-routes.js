@@ -66,8 +66,6 @@ router.get('/id/:id', async (req, res) => {
   }
 });
 
-
-
 // UPDATE an existing basket with id === req.params.id
 router.put('/:id', withAuth, async (req, res) => {
   try {
