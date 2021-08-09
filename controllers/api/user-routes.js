@@ -143,9 +143,22 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.put('/profile/location', (req, res) => {
-  if (req.session.loggedIn) {
-    User.update();
+router.put('/profile/location/:username', async (req, res) => {
+  try {
+    const updateLocation = await User.update(
+      {
+        zipcode: req.body.zipcode,
+        username: req.body.username,
+      },
+      {
+        where: {
+          username: req.params.username,
+        },
+      }
+    );
+    res.status(200).json({ message: 'User updated' });
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 module.exports = router;
