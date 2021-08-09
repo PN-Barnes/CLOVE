@@ -1,15 +1,18 @@
-<div class="col-sm-3">
-    <div class="card">
-        <a href="/profile/edit/{{id}}">
-            <div class="card-header text-center">{{product.name}}</div>
-            <div class="card-body basket-list-card">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item px-0">Organic: {{#if product.organic}}Yes{{else}}No{{/if}}</li>
-                    <li class="list-group-item px-0">Stock: {{stock}} lb</li>
-                    <li class="list-group-item px-0">Price: ${{price}}/lb</li>
-                    <li class="list-group-item px-0">Description: <br /> {{description}}</li>
-                </ul>
-            </div>
-        </a>
-    </div>
+<div class='col-sm-3'>
+  <div class='card'>
+    <a href='/profile/edit/{{id}}'>
+      <div class='card-header text-center'>{{product.name}}</div>
+      <div class='card-body basket-list-card'>
+        <ul class='list-group list-group-flush'>
+          <li class='list-group-item px-0'>Organic:
+            {{#if product.organic}}Yes{{else}}No{{/if}}</li>
+          <li class='list-group-item px-0'>Stock: {{stock}} lb</li>
+          <li class='list-group-item px-0'>Price: ${{price}}/lb</li>
+          <li class='list-group-item px-0'>Description:
+            <br />
+            {{description}}</li>
+        </ul>
+      </div>
+    </a>
+  </div>
 </div>
