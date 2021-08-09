@@ -5,17 +5,32 @@
         </div>
         <form>
             <div class="form-group my-3">
-                <label for="product-name">Product-name: {{baskets.[0].product.name}}</label>
+                <label for="product-name">Product Name: {{baskets.[0].product.name}}</label>
             </div>
-            <div class="form-group my-3">
-                <label for="stock">Stock:</label>
-                <input type="text" class="form-control" id="stock" value="{{baskets.[0].stock}} lb">
+            <div class="row">
+                <div class="col form-group">
+                    <label for="stock">Stock:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="stock" value="{{baskets.[0].stock}}">
+                        <div class="input-group-postpend">
+                            <div class="input-group-text">/lb</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col form-group">
+                    <label for="price">Price:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="text" class="form-control" id="price" value="{{baskets.[0].price}}">
+                        <div class="input-group-postpend">
+                            <div class="input-group-text">/lb</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group my-3">
-                <label for="price">Price:</label>
-                <input type="text" class="form-control" id="price" value="{{baskets.[0].price}} /lb">
-            </div>
-            <div class="form-group my-3">
+            <div class="form-group">
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" rows="3">{{baskets.[0].description}}</textarea>
             </div>
