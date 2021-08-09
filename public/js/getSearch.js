@@ -2,11 +2,12 @@ const searchHandler = async (event) => {
   event.preventDefault();
   const term = document.querySelector('#term').value;
   var sel = document.getElementById("search-by");
-var searchBy= sel.options[sel.selectedIndex].text;
+  var searchBy= sel.options[sel.selectedIndex].text;
 
-  if (term) {
+  if (!term) {
+    alert("Please enter a string!");
+  } else{
     if (searchBy === "Username") {
-      console.log("search by username");
       try {
         const response = await fetch(`/api/users/name/${term}`, {
             method: 'GET',
@@ -26,10 +27,8 @@ var searchBy= sel.options[sel.selectedIndex].text;
     } else if (searchBy === "Zip Code") {
       document.location.replace(`/baskets/zipcode/${term}`);
     } else {
-      document.location.replace(`/baskets/product/${term}`)
+      document.location.replace(`/baskets/product/${term}`);
     }
-  } else {
-    alert('Please enter a string!');
   }
 };
 

@@ -43,7 +43,7 @@ const uploadeImage = async (base64EncodedImage) => {
       alert('fail to upload');
     }
   } catch (err) {
-    console.log(err);
+    console.log("fail to upload the page, please double check the size and make sure it is png or jpeg file");
   }
 };
 
