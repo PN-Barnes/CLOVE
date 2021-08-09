@@ -11,20 +11,20 @@
             <img class="card-img-top" src="/assets/profile.jpeg" alt="profile picture">
           {{/if}}
           {{#if owner}}
-            <h5 class="card-title text-center" id="profile-text">Hello {{username}}!</h5>
+            <h5 class="card-title text-center">Hello {{username}}!</h5>
           {{else}}
             <h5 class="card-title text-center">{{username}}!</h5>
           {{/if}}
           <ul class="list-group list-group-flush">
-            <li class="list-group-item border-0 px-2 py-1" id="profile-text">Zip Code: {{zipcode}}
+            <li class="list-group-item border-0 px-2 py-1">Zip Code: {{zipcode}}
             {{#if owner}}
               <span id="new-location"><i class="fas fa-edit text-primary"></i></span>
             {{/if}}
             </li>
             {{#if ratingAverage}}
-              <li class="list-group-item border-0 px-2 py-1" id="profile-text">Average Rating: {{ratingAverage}}</li>
+              <li class="list-group-item border-0 px-2 py-1" id="average-rating">Average Rating: {{ratingAverage}}</li>
             {{else}}
-              <li class="list-group-item border-0 px-2 py-1" id="profile-text">No rating Yet</li>
+              <li class="list-group-item border-0 px-2 py-1">No rating Yet</li>
             {{/if}}
           </ul>
         {{#if owner}}
@@ -36,7 +36,7 @@
     <div class="card profile-small-section">
       <div class="card-body">
         <a href="/profile/message/">
-          <h5 class="card-title text-center" id="profile-text">Messages</h5>
+          <h5 class="card-title text-center">Messages</h5>
           <ul class="list-group list-group-flush">
             {{#each messages}}
               {{> profile-message-list}}
@@ -51,7 +51,7 @@
         {{#if owner}}
           <a href="/profile/rating/">
         {{/if}}
-          <h5 class="card-title text-center" id="profile-text">Ratings</h5>
+          <h5 class="card-title text-center">Ratings</h5>
           <ul class="list-group list-group-flush">
             {{#each ratings}}
               {{> profile-rating-list}}
