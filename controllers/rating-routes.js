@@ -28,9 +28,7 @@ router.get("/", withAuth, async (req, res) => {
           },
           as: "recipient",
         },
-        {
-          model: Product
-        },
+        { model: Product },
       ],
       order: [["date_created", "DESC"]],
     });
@@ -53,8 +51,10 @@ router.get("/", withAuth, async (req, res) => {
 
     // res.status(200).json(ratings);
     // display rating page with data of the user logged in
-    console.log(ratings);
+    const dbProductData = await Product.findAll();
+    const products = dbProductData.map(product => product.get({ plain: true }));
     res.render('rating', {
+      products,
       ...ratings,
       loggedIn: req.session.loggedIn,
       profilePage: true,
