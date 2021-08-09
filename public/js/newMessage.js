@@ -1,4 +1,8 @@
 const sendNewMessage = async (content, recipient_id) => {
+  if (!content) {
+    alert("Please enter valid content!");
+    return;
+  }
   const response = await fetch(`/api/messages/`, {
     method: "POST",
     body: JSON.stringify({ content, recipient_id }),
@@ -9,7 +13,7 @@ const sendNewMessage = async (content, recipient_id) => {
   if (response.ok) {
     document.location.reload();
   } else {
-    alert(response.statusText);
+    alert("Fail to send the message");
   }
 }
 

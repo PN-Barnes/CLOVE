@@ -40,10 +40,10 @@ const uploadeImage = async (base64EncodedImage) => {
       console.log('uploaded');
       document.location.replace('/profile');
     } else {
-      alert('fail to upload');
+      alert('fail to upload, please choose image file with size less than 1MB!');
     }
   } catch (err) {
-    console.log(err);
+    console.log("fail to upload the page, please double check the size and make sure it is png or jpeg file");
   }
 };
 
