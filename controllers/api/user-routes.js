@@ -142,7 +142,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
+//  ROUTER to update zipcodes
 router.put('/profile/location/:username', async (req, res) => {
   try {
     const updateLocation = await User.update(
