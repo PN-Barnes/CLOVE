@@ -5,6 +5,10 @@
       <a class="navbar-brand" href="/profile">
       <img src="/assets/clove-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       <b class="nav-title">Profile</b>
+      {{else if messagePage}}
+      <a class="navbar-brand" href="/profile/message">
+      <img src="/assets/clove-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <b class="nav-title">Message</b>
       {{else}}
       <a class="navbar-brand" href="/">
       <img src="/assets/clove-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
