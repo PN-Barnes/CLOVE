@@ -69,6 +69,19 @@ nav a {
     color: white;
 }
 
+.donate-btn {
+    background-color: #00471B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.donate-btn a {
+    color: white;
+}
+
 .btn {
     background-color: #00471B;
     color: white;
@@ -97,4 +110,12 @@ nav a {
 
 #new-basket {
     margin-top: 10px;
+}
+
+#clove-carousel {
+    border-radius: 5px;
+}
+
+#carouselExampleControls {
+    margin-bottom: 20px;
 }
