@@ -2,13 +2,13 @@
     <div class="card">
         <div class="card-body basket-list-card">
             <a href="/profile/user/{{user_id}}">
-                <div class="card-title text-center">
+                <div class="card-title text-center" id="profile-text">
                     <h2>{{product.name}}</h2>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Stock: {{stock}} lb</li>
-                    <li class="list-group-item">Price: ${{price}}/lb</li>
-                    <li class="list-group-item">Description: <br /> {{description}}</li>
+                    <li class="list-group-item" id="profile-text">Stock: {{stock}} lb</li>
+                    <li class="list-group-item" id="profile-text">Price: ${{price}}/lb</li>
+                    <li class="list-group-item" id="profile-text">Description: <br /> {{description}}</li>
                 </ul>
             </a>
         </div>

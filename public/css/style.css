@@ -75,10 +75,18 @@ nav a {
 }
 
 .btn:hover {
-    background-color: #EEE1C6;
-    color: black;
+    background-color: gray;
+    color: white;
 }
 
 #profile-text {
     color: #00471B;
+}
+
+#search-by {
+    border: none;
+    padding: 5px;
+    background-color: #00471B;
+    color: white;
+    border-radius: 5px;
 }
