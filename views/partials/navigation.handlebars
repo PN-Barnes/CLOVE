@@ -1,6 +1,6 @@
 <div class="navbar-css">
   <header class="d-flex justify-content-between align-items-center mx-auto">
-    <nav class="navbar navbar-light">
+    <nav class="navbar navbar-light navbar-collapse">
       {{#if profilePage}}
       <a class="navbar-brand" href="/profile">
       <img src="/assets/clove-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -16,16 +16,16 @@
       {{/if}}
       </a>
     </nav>
-    <nav>
+    <nav class="navbar-collapse">
       <div class="nav-links">
-        <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-        <a href="/baskets"><i class="fa fa-search" aria-hidden="true"></i> Search</i></a>
+        <a href="/"><i class="fa fa-home mb-3 mt-3" aria-hidden="true"></i> Home</a>
+        <a href="/profile"><i class="fa fa-user mb-3 mt-3" aria-hidden="true"></i> Profile</a>
+        <a href="/baskets"><i class="fa fa-search mb-3 mt-3" aria-hidden="true"></i> Search</i></a>
         {{#if loggedIn}}
-        <a href="/" id="logout">Logout</a>
+        <a href="/" id="logout" class="mb-3 mt-3">Logout</a>
         {{else}}
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
+        <a href="/login" class="mb-3 mt-3">Login</a>
+        <a href="/signup" class="mb-3 mt-3">Signup</a>
         {{/if}}
       </div>
     </nav>
