@@ -90,3 +90,11 @@ nav a {
     color: white;
     border-radius: 5px;
 }
+
+#basket-display {
+    padding: 15px;
+}
+
+#new-basket {
+    margin-top: 10px;
+}
