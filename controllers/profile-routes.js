@@ -17,11 +17,7 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: Basket,
-          include: [
-            {
-              model: Product,
-            },
-          ],
+          include: [{ model: Product }],
         },
         {
           model: Rating,
@@ -207,7 +203,11 @@ router.get('/user/:id', async (req, res) => {
 
 router.get('/newbasket', withAuth, async (req, res) => {
   try {
+    const dbProductData = await Product.findAll();
+    const products = dbProductData.map(product => product.get({ plain: true }));
+    // res.status(200).json({products, profilePage: true});
     res.render('new-basket', {
+      products,
       loggedIn: req.session.loggedIn,
       profilePage: true,
     });
