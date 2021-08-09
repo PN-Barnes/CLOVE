@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Basket extends Model {}
 
@@ -31,16 +31,16 @@ Basket.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
-        key: "id",
+        model: 'User',
+        key: 'id',
         unique: false,
       },
     },
     product_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Product",
-        key: "id",
+        model: 'Product',
+        key: 'id',
         unique: false,
       },
     },
@@ -50,7 +50,7 @@ Basket.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "basket",
+    modelName: 'basket',
   }
 );
 

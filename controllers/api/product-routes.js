@@ -1,11 +1,11 @@
-const router = require("express").Router();
-const { User, Basket, Product, Rating } = require("../../models");
+const router = require('express').Router();
+const { User, Basket, Product, Rating } = require('../../models');
 // const withAuth = require('../../utils/auth');
 // const { formatString } = require('../../utils/helpers');
 // const { Op } = require("sequelize");
 
 // GET info of product
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // assume user can provide product_id
     const dbProductData = await Product.findAll();
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET info of product id === req.params.id
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const dbProductData = await Product.findByPk(req.params.id);
     res.status(200).json(dbProductData);
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/name/:productName", async (req, res) => {
+router.get('/name/:productName', async (req, res) => {
   try {
     const dbProductData = await Product.findOne({
       where: { name: req.params.productName },
@@ -34,7 +34,7 @@ router.get("/name/:productName", async (req, res) => {
     if (!dbProductData) {
       res
         .status(400)
-        .json({ message: "No product found with this product name!" });
+        .json({ message: 'No product found with this product name!' });
     } else {
       const product = dbProductData.get({ plain: true });
       res.status(200).json(product);

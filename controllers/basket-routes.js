@@ -13,11 +13,11 @@ router.get('/', async (req, res) => {
           },
         },
         {
-          model: Product
+          model: Product,
         },
       ],
     });
-    const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
+    const baskets = dbBasketData.map((basket) => basket.get({ plain: true }));
     // res.status(200).json(baskets);
     console.log(baskets);
     res.render('search-page', {
@@ -43,15 +43,15 @@ router.get('/product/:name', async (req, res) => {
         {
           model: Product,
           where: {
-            name: req.params.name
-          }
+            name: req.params.name,
+          },
         },
       ],
     });
-    const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
+    const baskets = dbBasketData.map((basket) => basket.get({ plain: true }));
     // res.status(200).json(baskets);
     console.log(baskets);
-    res.render('search-page',  {
+    res.render('search-page', {
       baskets,
       loggedIn: req.session.loggedIn,
       profilePage: false,
@@ -71,20 +71,21 @@ router.get('/zipcode/:zipcode', async (req, res) => {
             exclude: ['password'],
           },
           where: {
-            zipcode: req.params.zipcode
-          }
+            zipcode: req.params.zipcode,
+          },
         },
         {
           model: Product,
         },
       ],
     });
-    const baskets = dbBasketData.map(basket => basket.get({ plain: true }));
+    const baskets = dbBasketData.map((basket) => basket.get({ plain: true }));
     console.log(baskets);
     res.render('search-page', {
       baskets,
       loggedIn: req.session.loggedIn,
-      profilePage: false,});
+      profilePage: false,
+    });
     // res.status(200).json(baskets);
   } catch (err) {
     res.status(500).json(err);

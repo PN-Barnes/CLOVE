@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Rating extends Model {}
 
@@ -31,24 +31,24 @@ Rating.init(
     recipient_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
-        key: "id",
+        model: 'User',
+        key: 'id',
         unique: false,
       },
     },
     poster_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
-        key: "id",
+        model: 'User',
+        key: 'id',
         unique: false,
       },
     },
     product_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Product",
-        key: "id",
+        model: 'Product',
+        key: 'id',
         unique: false,
       },
     },
@@ -58,7 +58,7 @@ Rating.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "rating",
+    modelName: 'rating',
   }
 );
 

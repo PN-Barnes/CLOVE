@@ -1,6 +1,5 @@
 const { User } = require('../models');
 
-
 // user passwords are all 123456
 const userData = [
   {

@@ -1,6 +1,6 @@
 const formatDate = (date) => {
-    return date.toLocaleDateString();
-}
+  return date.toLocaleDateString();
+};
 
 // const formatString = (str) => {
 //     var words = str.replace(/\s+/g, ' ').trim().split(" ");
@@ -17,7 +17,7 @@ const formatDate = (date) => {
 // }
 
 module.exports = {
-    formatDate
-    // formatString,
-    // ifEqual
+  formatDate,
+  // formatString,
+  // ifEqual
 };

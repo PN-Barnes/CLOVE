@@ -1,25 +1,25 @@
-const router = require("express").Router();
-const { User, Basket, Product, Rating } = require("../../models");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { User, Basket, Product, Rating } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET all rating
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const dbRatingData = await Rating.findAll({
       include: [
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "poster",
+          as: 'poster',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
         {
           model: Product,
@@ -34,23 +34,23 @@ router.get("/", async (req, res) => {
 });
 
 // GET rating with id === req.params.id
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const dbRatingData = await Rating.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "poster",
+          as: 'poster',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
         {
           model: Product,
@@ -65,7 +65,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // GET info of rating of certain recipient with recipient_id === req.params.id
-router.get("/recipient/:id", async (req, res) => {
+router.get('/recipient/:id', async (req, res) => {
   try {
     const dbRatingData = await Rating.findAll({
       where: {
@@ -75,16 +75,16 @@ router.get("/recipient/:id", async (req, res) => {
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "poster",
+          as: 'poster',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
         {
           model: Product,
@@ -99,7 +99,7 @@ router.get("/recipient/:id", async (req, res) => {
 });
 
 // GET info of rating of certain poster with poster_id === req.params.id
-router.get("/poster/:id", async (req, res) => {
+router.get('/poster/:id', async (req, res) => {
   try {
     const dbRatingData = await Rating.findAll({
       where: {
@@ -109,16 +109,16 @@ router.get("/poster/:id", async (req, res) => {
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "poster",
+          as: 'poster',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
         {
           model: Product,
@@ -133,7 +133,7 @@ router.get("/poster/:id", async (req, res) => {
 });
 
 // CREATE a new rating
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     // assume user can provide product_id and recipient_id
     const dbRatingData = await Rating.create({
@@ -152,18 +152,18 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // UPDATE an existing rating with id === req.params.id
-router.put("/:id", withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     let dbRatingData = await Rating.findByPk(req.params.id);
     if (!dbRatingData) {
-      res.status(400).json({ message: "No rating found with that id!" });
+      res.status(400).json({ message: 'No rating found with that id!' });
       return;
     } else if (
       dbRatingData.get({ plain: true }).poster_id !== req.session.userId
     ) {
       res
         .status(400)
-        .json({ message: "Sorry you cannot edit the rating with that id!" });
+        .json({ message: 'Sorry you cannot edit the rating with that id!' });
     } else {
       dbRatingData = await Rating.update(
         {
@@ -176,7 +176,7 @@ router.put("/:id", withAuth, async (req, res) => {
           },
         }
       );
-      res.status(200).json({ message: "Updated successfully!" });
+      res.status(200).json({ message: 'Updated successfully!' });
     }
   } catch (err) {
     console.log(err);
@@ -185,25 +185,25 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 // DELETE an existing rating with id === req.params.id
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     let dbRatingData = await Rating.findByPk(req.params.id);
     if (!dbRatingData) {
-      res.status(400).json({ message: "No rating found with that id!" });
+      res.status(400).json({ message: 'No rating found with that id!' });
       return;
     } else if (
       dbRatingData.get({ plain: true }).poster_id !== req.session.userId
     ) {
       res
         .status(400)
-        .json({ message: "Sorry you cannot delete the rating with that id!" });
+        .json({ message: 'Sorry you cannot delete the rating with that id!' });
     } else {
       dbRatingData = await Rating.destroy({
         where: {
           id: req.params.id,
         },
       });
-      res.status(200).json({ message: "Delete the rating successfully!" });
+      res.status(200).json({ message: 'Delete the rating successfully!' });
     }
   } catch (err) {
     res.status(500).json(err);

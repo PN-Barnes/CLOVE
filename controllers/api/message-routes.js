@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const { Op } = require("sequelize");
-const { User, Basket, Product, Rating, Message } = require("../../models");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { Op } = require('sequelize');
+const { User, Basket, Product, Rating, Message } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET all message
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const dbMessageData = await Message.findAll({
       where: {
@@ -17,16 +17,16 @@ router.get("/", withAuth, async (req, res) => {
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "sender",
+          as: 'sender',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
       ],
     });
@@ -38,23 +38,23 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // GET message with id === req.params.id
-router.get("/:id", withAuth, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const dbMessageData = await Message.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "sender",
+          as: 'sender',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
       ],
     });
@@ -68,35 +68,39 @@ router.get("/:id", withAuth, async (req, res) => {
 // GET info of message of certain user with
 //recipient_id === req.params.id && sender_id: req.session.userId
 // || sender_id === req.params.id && recipient_id: req.session.userId
-router.get("/with/:id", withAuth, async (req, res) => {
+router.get('/with/:id', withAuth, async (req, res) => {
   try {
     const dbMessageData = await Message.findAll({
       where: {
-        [Op.or]: [{
-          [Op.and]: [
-            { recipient_id: req.session.userId },
-            { sender_id: req.params.id },
-          ]},
-          {[Op.and]: [
-            { recipient_id: req.params.id },
-            { sender_id: req.session.userId },
-          ]},
+        [Op.or]: [
+          {
+            [Op.and]: [
+              { recipient_id: req.session.userId },
+              { sender_id: req.params.id },
+            ],
+          },
+          {
+            [Op.and]: [
+              { recipient_id: req.params.id },
+              { sender_id: req.session.userId },
+            ],
+          },
         ],
       },
       include: [
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "sender",
+          as: 'sender',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
       ],
     });
@@ -108,7 +112,7 @@ router.get("/with/:id", withAuth, async (req, res) => {
 });
 
 // CREATE a new message
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     // assume user can provide recipient_id
     const dbMessageData = await Message.create({
@@ -125,25 +129,25 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // DELETE an existing message with id === req.params.id
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     let dbMessageData = await Message.findByPk(req.params.id);
     if (!dbMessageData) {
-      res.status(400).json({ message: "No message found with that id!" });
+      res.status(400).json({ message: 'No message found with that id!' });
       return;
     } else if (
       dbMessageData.get({ plain: true }).sender_id !== req.session.userId
     ) {
       res
         .status(400)
-        .json({ message: "Sorry you cannot delete the message with that id!" });
+        .json({ message: 'Sorry you cannot delete the message with that id!' });
     } else {
       dbMessageData = await Message.destroy({
         where: {
           id: req.params.id,
         },
       });
-      res.status(200).json({ message: "Delete the message successfully!" });
+      res.status(200).json({ message: 'Delete the message successfully!' });
     }
   } catch (err) {
     res.status(500).json(err);

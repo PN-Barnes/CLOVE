@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const withAuth = require("../utils/auth");
-const { User, Product, Basket, Rating, Message } = require("../models");
-const { Op } = require("sequelize");
+const router = require('express').Router();
+const withAuth = require('../utils/auth');
+const { User, Product, Basket, Rating, Message } = require('../models');
+const { Op } = require('sequelize');
 
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // get all rating of user logged in
     const dbRatingData = await Rating.findAll({
@@ -17,20 +17,20 @@ router.get("/", withAuth, async (req, res) => {
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "poster",
+          as: 'poster',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
         { model: Product },
       ],
-      order: [["date_created", "DESC"]],
+      order: [['date_created', 'DESC']],
     });
 
     const ratingRelated = dbRatingData.map((rating) =>
@@ -52,7 +52,9 @@ router.get("/", withAuth, async (req, res) => {
     // res.status(200).json(ratings);
     // display rating page with data of the user logged in
     const dbProductData = await Product.findAll();
-    const products = dbProductData.map(product => product.get({ plain: true }));
+    const products = dbProductData.map((product) =>
+      product.get({ plain: true })
+    );
     res.render('rating', {
       products,
       ...ratings,

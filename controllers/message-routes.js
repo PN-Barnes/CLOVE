@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const withAuth = require("../utils/auth");
-const { User, Product, Basket, Rating, Message } = require("../models");
-const { Op } = require("sequelize");
+const router = require('express').Router();
+const withAuth = require('../utils/auth');
+const { User, Product, Basket, Rating, Message } = require('../models');
+const { Op } = require('sequelize');
 
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // get all message of user logged in
     const dbMessageData = await Message.findAll({
@@ -17,19 +17,19 @@ router.get("/", withAuth, async (req, res) => {
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "sender",
+          as: 'sender',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
       ],
-      order: [["date_created", "DESC"]],
+      order: [['date_created', 'DESC']],
     });
 
     const messageRelated = dbMessageData.map((message) =>
@@ -51,7 +51,7 @@ router.get("/", withAuth, async (req, res) => {
     // res.status(200).json(messages);
     // display message page with data of the user logged in
     console.log(messages);
-    res.render("message", {
+    res.render('message', {
       ...messages,
       loggedIn: req.session.loggedIn,
       messagePage: true,
@@ -62,38 +62,42 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-router.get("/:id", withAuth, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const dbMessageData = await Message.findAll({
       where: {
-        [Op.or]: [{
-          [Op.and]: [
-            { recipient_id: req.session.userId },
-            { sender_id: req.params.id },
-          ]},
-          {[Op.and]: [
-            { recipient_id: req.params.id },
-            { sender_id: req.session.userId },
-          ]},
+        [Op.or]: [
+          {
+            [Op.and]: [
+              { recipient_id: req.session.userId },
+              { sender_id: req.params.id },
+            ],
+          },
+          {
+            [Op.and]: [
+              { recipient_id: req.params.id },
+              { sender_id: req.session.userId },
+            ],
+          },
         ],
       },
       include: [
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "sender",
+          as: 'sender',
         },
         {
           model: User,
           attributes: {
-            exclude: ["password"],
+            exclude: ['password'],
           },
-          as: "recipient",
+          as: 'recipient',
         },
       ],
-      order: [["date_created", "DESC"]],
+      order: [['date_created', 'DESC']],
     });
     const messages = dbMessageData.map((message) =>
       message.get({ plain: true })
@@ -103,8 +107,12 @@ router.get("/:id", withAuth, async (req, res) => {
     }
 
     // display message page with data of the user logged in
-    console.log({ messages, loggedIn: req.session.loggedIn, profilePage: true });
-    res.render("message-with", {
+    console.log({
+      messages,
+      loggedIn: req.session.loggedIn,
+      profilePage: true,
+    });
+    res.render('message-with', {
       messages,
       loggedIn: req.session.loggedIn,
       messagePage: true,

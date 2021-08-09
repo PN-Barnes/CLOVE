@@ -1,15 +1,21 @@
 {{#if isReceipient}}
   <a href='/profile/message/{{sender.id}}'>
-    <div class="panel panel-default">
-      <div class="panel-heading py-1 px-2">From {{sender.username}} on {{formatDate date_created}}</div>
-      <div class="panel-body py-2 px-2">{{content}}</div>
+    <div class='panel panel-default'>
+      <div class='panel-heading py-1 px-2'>From
+        {{sender.username}}
+        on
+        {{formatDate date_created}}</div>
+      <div class='panel-body py-2 px-2'>{{content}}</div>
     </div>
   </a>
 {{else}}
   <a href='/profile/message/{{recipient.id}}'>
-    <div class="panel panel-default">
-      <div class="panel-heading py-1 px-2">To {{recipient.username}} on {{formatDate date_created}}</div>
-      <div class="panel-body py-2 px-2">{{content}}</div>
+    <div class='panel panel-default'>
+      <div class='panel-heading py-1 px-2'>To
+        {{recipient.username}}
+        on
+        {{formatDate date_created}}</div>
+      <div class='panel-body py-2 px-2'>{{content}}</div>
     </div>
   </a>
 {{/if}}

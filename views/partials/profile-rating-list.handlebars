@@ -1,7 +1,13 @@
-<li class="list-group-item px-0 py-1">
+<li class='list-group-item px-0 py-1'>
   {{#if isRecipient}}
-    From {{poster.username}} on {{formatDate date_created}}
+    From
+    {{poster.username}}
+    on
+    {{formatDate date_created}}
   {{else}}
-    To {{recipient.username}} on {{formatDate date_created}}
+    To
+    {{recipient.username}}
+    on
+    {{formatDate date_created}}
   {{/if}}
 </li>
