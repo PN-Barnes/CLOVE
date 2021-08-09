@@ -11,20 +11,20 @@
             <img class="card-img-top" src="/assets/profile.jpeg" alt="profile picture">
           {{/if}}
           {{#if owner}}
-            <h5 class="card-title text-center">Hello {{username}}!</h5>
+            <h5 class="card-title text-center mt-2"><b>Hello {{username}}!</b></h5>
           {{else}}
-            <h5 class="card-title text-center">{{username}}!</h5>
+            <h5 class="card-title text-center mt-2"><b>{{username}}!</b></h5>
           {{/if}}
           <ul class="list-group list-group-flush">
-            <li class="list-group-item border-0 px-2 py-1">Zip Code: {{zipcode}}
+            <li class="list-group-item border-0 px-0 py-1">Zip Code: {{zipcode}}
             {{#if owner}}
-              <span id="new-location"><i class="fas fa-edit text-primary"></i></span>
+              <span id="new-location"><i class="fas fa-edit"></i></span>
             {{/if}}
             </li>
             {{#if ratingAverage}}
-              <li class="list-group-item border-0 px-2 py-1" id="average-rating">Average Rating: {{ratingAverage}}</li>
+              <li class="list-group-item border-0 px-0 py-1" id="average-rating">Average Rating: {{ratingAverage}}</li>
             {{else}}
-              <li class="list-group-item border-0 px-2 py-1">No rating Yet</li>
+              <li class="list-group-item border-0 px-0 py-1">No rating Yet</li>
             {{/if}}
           </ul>
         {{#if owner}}
@@ -34,32 +34,32 @@
     </div>
     {{#if owner}}
     <div class="card profile-small-section">
+      <a href="/profile/message/">
+        <div class="card-header text-center"><b>Message</b></div>
+      </a>
       <div class="card-body">
-        <a href="/profile/message/">
-          <h5 class="card-title text-center">Messages</h5>
-          <ul class="list-group list-group-flush">
-            {{#each messages}}
-              {{> profile-message-list}}
-            {{/each}}
-          </ul>
-        </a>
+        <ul class="list-group list-group-flush">
+          {{#each messages}}
+            {{> profile-message-list}}
+          {{/each}}
+        </ul>
       </div>
     </div>
     {{/if}}
     <div class="card profile-small-section">
+      {{#if owner}}
+        <a href="/profile/rating/">
+      {{/if}}
+      <div class="card-header text-center"><b>Ratings</b></div>
+      {{#if owner}}
+      </a>
+      {{/if}}
       <div class="card-body">
-        {{#if owner}}
-          <a href="/profile/rating/">
-        {{/if}}
-          <h5 class="card-title text-center">Ratings</h5>
-          <ul class="list-group list-group-flush">
-            {{#each ratings}}
-              {{> profile-rating-list}}
-            {{/each}}
-          </ul>
-        {{#if owner}}
-        </a>
-        {{/if}}
+        <ul class="list-group list-group-flush">
+          {{#each ratings}}
+            {{> profile-rating-list}}
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

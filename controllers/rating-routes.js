@@ -37,21 +37,23 @@ router.get('/', withAuth, async (req, res) => {
       const ratingPosted = [];
       for (const rating of ratingRelated) {
         if (rating.recipient_id === req.session.userId) {
-            ratingReceived.push(rating);
+          rating.isRecipient = true;
+          ratingReceived.push(rating);
         } else {
-            ratingPosted.push(rating);
+          rating.isRecipient = false;
+          ratingPosted.push(rating);
         }
       }
       const ratings = { ratingReceived, ratingPosted }
 
-    //   res.status(200).json(ratings);
+      res.status(200).json(ratings);
       // display rating page with data of the user logged in
       console.log(ratings);
-      res.render('rating', {
-        ...ratings,
-        loggedIn: req.session.loggedIn,
-        profilePage: true,
-      });
+      // res.render('rating', {
+      //   ...ratings,
+      //   loggedIn: req.session.loggedIn,
+      //   profilePage: true,
+      // });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
