@@ -31,9 +31,17 @@
                     <label for="recipient">To:</label>
                     <input type="text" class="form-control" id="recipient">
                 </div>
-                <div class="form-group my-3">
+                {{!-- <div class="form-group my-3">
                     <label for="product">Product Name:</label>
                     <input type="text" class="form-control" id="product">
+                </div> --}}
+                <div class="form-group my-3">
+                    <label for="product-select">Product Name:</label>
+                    <select class="product form-control" id="product-select">
+                      {{#each products}}
+                        <option data-id="{{id}}">{{#if organic}}organic{{/if}} {{name}}</option>
+                      {{/each}}
+                    </select>
                 </div>
                 <div class="form-group my-3">
                     <label for="score-select">Rate your experience:</label>
