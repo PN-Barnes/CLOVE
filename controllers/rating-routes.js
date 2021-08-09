@@ -46,14 +46,14 @@ router.get('/', withAuth, async (req, res) => {
       }
       const ratings = { ratingReceived, ratingPosted }
 
-      res.status(200).json(ratings);
+      // res.status(200).json(ratings);
       // display rating page with data of the user logged in
       console.log(ratings);
-      // res.render('rating', {
-      //   ...ratings,
-      //   loggedIn: req.session.loggedIn,
-      //   profilePage: true,
-      // });
+      res.render('rating', {
+        ...ratings,
+        loggedIn: req.session.loggedIn,
+        profilePage: true,
+      });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

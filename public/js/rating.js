@@ -48,7 +48,29 @@ const createRatingHandler = async (event) => {
     }
 };
 
+const generateIcon = (number) => {
+    let html = "<span>";
+    const icon = `<i class="fas fa-heart text-danger"></i>`;
+    for (let i = 0; i < number; i++) {
+        html += icon;
+    }
+    return html + "</span>";
+}
 
+// document.addEventListener("DOMContentLoaded", function(event) { 
+//     // const text = document.querySelector(".rating").innerHTML;
+//     const ratingElements = document.querySelector(".rating");
+//     for (const ratingElement of ratingElements) {
+//         const text = ratingElement.innerHTML;
+//         const ratingStar = parseInt(text[0]);
+//         if (isNaN(ratingStar)) {
+//             return;
+//         };
+//         let html = generateIcon(ratingStar);
+//         html += text.substr(1);
+//         ratingElement.innerHTML = html;
+//     }
+//   });
 
 document
   .querySelector('form')
