@@ -18,4 +18,5 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
+// Export route
 module.exports = sequelize;
