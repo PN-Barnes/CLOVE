@@ -1,11 +1,23 @@
-{{#if isReceipient}}
-<a href="/profile/message/{{sender.id}}">
-  <div>From {{sender.username}} on {{formatDate date_created}}</div>
-  <div>{{content}}</div>
-</a>
-{{else}}
-<a href="/profile/message/{{recipient.id}}">
-  <div>To {{recipient.username}} on {{formatDate date_created}}</div>
-  <div>{{content}}</div>
-</a>
-{{/if}}
+<section>
+  {{#if isReceipient}}
+    <a href='/profile/message/{{sender.id}}'>
+      <div class='card text-white bg-success mt-3 mb-3'>
+        <div class='card-title'>From
+          {{sender.username}}
+          on
+          {{formatDate date_created}}</div>
+        <div class='card-body bg-light text-success'>{{content}}</div>
+      </div>
+    </a>
+  {{else}}
+    <a href='/profile/message/{{recipient.id}}'>
+      <div class='card text-white bg-success mt-3 mb-3'>
+        <div class='card-title'>To
+          {{recipient.username}}
+          on
+          {{formatDate date_created}}</div>
+        <div class='card-body bg-light text-success'>{{content}}</div>
+      </div>
+    </a>
+  {{/if}}
+</section>
