@@ -31,6 +31,10 @@ User.init(
     zipcode: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [5, 5],
+        is: /^[0-9]+$/i
+      }
     },
     profile_picture: {
       type: DataTypes.STRING
