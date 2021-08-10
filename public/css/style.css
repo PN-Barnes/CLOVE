@@ -14,7 +14,7 @@ body {
 
 header,
 main {
-  width: 80%;
+  width: 95%;
 }
 
 main {
@@ -137,3 +137,26 @@ nav a {
 #carouselExampleControls {
   margin-bottom: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  header,
+  main {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  header,
+  main {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header,
+  main {
+    width: 80%;
+  }
+}
+
+

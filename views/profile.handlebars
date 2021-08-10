@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-md-4 col-xl-3">
     <div class="card">
       <div class="card-body">
         {{#if owner}}
@@ -22,7 +22,7 @@
             {{/if}}
             </li>
             {{#if ratingAverage}}
-              <li class="list-group-item border-0 px-0 py-1" id="average-rating">Average Rating: {{ratingAverage}}</li>
+              <li class="list-group-item border-0 px-0 py-1" id="average-rating">Rating: {{ratingAverage}}</li>
             {{else}}
               <li class="list-group-item border-0 px-0 py-1">No rating Yet</li>
             {{/if}}
@@ -64,15 +64,15 @@
     </div>
   </div>
 
-  <div class="col-sm-9">
+  <div class="col-md-8 col-xl-9">
     <div class="row baskets-display">
       {{#if owner}}
         {{#each baskets}}
-          {{> profile-basket-list}}
+          {{> owner-basket-list}}
         {{/each}}
       {{else}}
         {{#each baskets}}
-          {{> basket-list}}
+          {{> user-basket-list}}
         {{/each}}
       {{/if}}
     </div>
