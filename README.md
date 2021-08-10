@@ -69,6 +69,12 @@ You can now go to http://localhost:3001 and browse our application!
 
 If you don't want to go through all that trouble to view CLOVE, you could simply follow <a href="https://still-reef-24172.herokuapp.com/">https://still-reef-24172.herokuapp.com/</a> to view the application from heroku.
 
+<b>Account for demo:</b>
+
+Username: user1
+
+Password: 123123
+
 <div id='projectPresentation'></div>
 
 ## Project Presentation 
