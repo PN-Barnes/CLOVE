@@ -148,6 +148,13 @@ nav a {
 @media screen and (min-width: 992px) {
   header,
   main {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header,
+  main {
     width: 80%;
   }
 }
