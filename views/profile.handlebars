@@ -68,11 +68,11 @@
     <div class="row baskets-display">
       {{#if owner}}
         {{#each baskets}}
-          {{> profile-basket-list}}
+          {{> owner-basket-list}}
         {{/each}}
       {{else}}
         {{#each baskets}}
-          {{> basket-list}}
+          {{> user-basket-list}}
         {{/each}}
       {{/if}}
     </div>
